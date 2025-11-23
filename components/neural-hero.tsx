@@ -49,9 +49,13 @@ const ParticleBackground = React.memo(function ParticleBackground({ init }: { in
 
 export function NeuralHero() {
   const [init, setInit] = useState(false);
-  const [textIndex, setTextIndex] = useState(0);
+  
+  // Typewriter State
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
 
-  // Initialize particles engine only once
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
@@ -60,17 +64,35 @@ export function NeuralHero() {
     });
   }, []);
 
-  // Typewriter effect logic - fixed timing
+  // Typewriter Logic
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTextIndex((prev) => {
-        const next = (prev + 1) % roles.length;
-        console.log('Text changing to:', roles[next]); // Debug log
-        return next;
-      });
-    }, 2000); // Reduced to 2 seconds for more noticeable effect
-    return () => clearInterval(interval);
-  }, []); // Empty dependency - roles is now constant outside component
+    const handleTyping = () => {
+      const currentRole = roles[roleIndex];
+      
+      if (isDeleting) {
+        // Deleting characters
+        setDisplayedText(currentRole.substring(0, displayedText.length - 1));
+        setTypingSpeed(50); // Faster deletion
+      } else {
+        // Typing characters
+        setDisplayedText(currentRole.substring(0, displayedText.length + 1));
+        setTypingSpeed(150); // Normal typing speed
+      }
+
+      // Logic for switching states
+      if (!isDeleting && displayedText === currentRole) {
+        // Finished typing, pause before deleting
+        setTimeout(() => setIsDeleting(true), 2000); 
+      } else if (isDeleting && displayedText === "") {
+        // Finished deleting, switch to next role
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, roleIndex, typingSpeed]);
 
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -89,7 +111,7 @@ export function NeuralHero() {
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-slate-100 tracking-tight mb-6">
             I Engineer <br />
             <span className="text-teal-400 border-r-4 border-teal-400 pr-4 animate-pulse">
-              {roles[textIndex]}
+              {displayedText}
             </span>
           </h1>
 

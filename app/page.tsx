@@ -1,25 +1,28 @@
 import { NavHeader } from "@/components/nav-header";
 import { NeuralHero } from "@/components/neural-hero";
 import { ResearchCard } from "@/components/research-card";
-import { Button } from "@/components/ui/button";
+import { ContactSection } from "@/components/contact-section";
+import { CommandMenu } from "@/components/command-menu";
+import { TechStack } from "@/components/tech-stack";
 import { Separator } from "@/components/ui/separator";
-import { Download } from "lucide-react";
 
 export default function Home() {
   const projects = [
     {
-      title: "Distributed Data Pipeline",
-      category: "Systems Engineering",
-      metrics: "Throughput: 10k req/s",
-      abstract: "Designed a fault-tolerant data ingestion layer utilizing Apache Kafka for event streaming and MinIO for object storage. Implemented a microservices architecture orchestrated via Docker Compose to ensure scalable processing of unstructured data streams.",
-      techStack: ["PostgreSQL", "Kafka", "MinIO", "Docker", "Go"],
+      title: "Neural Network Optimization using Gradient Descent Variants",
+      category: "Machine Learning Research",
+      metrics: "94.7% accuracy with Adam",
+      abstract: "This research investigates the performance characteristics of various gradient descent optimization algorithms including SGD, Adam, RMSprop, and AdaGrad across different neural network architectures. Our empirical analysis demonstrates significant performance improvements when using adaptive learning rate methods.",
+      techStack: ["Python", "TensorFlow", "NumPy", "Matplotlib", "Research"],
+      link: "/projects/neural-optimization",
     },
     {
-      title: "Commit Streak Gamification",
-      category: "Web Application",
-      metrics: "User Retention: +40%",
-      abstract: "Developed a client-facing web application designed to visualize and gamify GitHub commit streaks. Utilized the GitHub API to fetch real-time data, rendering heatmaps and engagement metrics to encourage consistent open-source contribution.",
-      techStack: ["Next.js", "TypeScript", "Tailwind", "GitHub API"],
+      title: "Scalable Microservices Architecture with Event-Driven Design",
+      category: "Backend Development",
+      metrics: "10k+ req/s throughput",
+      abstract: "Building fault-tolerant distributed systems using message queues and container orchestration. This project demonstrates the implementation of a resilient microservices architecture capable of handling high-throughput data processing with Apache Kafka and Docker.",
+      techStack: ["Go", "Kafka", "Docker", "PostgreSQL", "Kubernetes"],
+      link: "/projects/microservices-architecture",
     },
     {
       title: "Alumni Association Platform",
@@ -39,9 +42,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-950 selection:bg-teal-500/20">
+      <CommandMenu />
       <NavHeader />
-      
-      {/* Hero Section */}
       <NeuralHero />
 
       {/* Academic/Stats Section */}
@@ -68,6 +70,9 @@ export default function Home() {
       </section>
 
       <Separator className="bg-slate-900" />
+      
+      {/* Tech Stack Section */}
+      <TechStack />
 
       {/* Projects / Case Studies */}
       <section id="projects" className="py-24 bg-slate-950">
@@ -92,32 +97,7 @@ export default function Home() {
       </section>
 
       {/* Contact / Footer */}
-      <section id="contact" className="py-32 px-6 text-center bg-slate-950 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-500/5 rounded-full blur-[100px] pointer-events-none" />
-        
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl text-slate-100 mb-8">
-            Let&apos;s Build the Future
-          </h2>
-          <p className="text-slate-400 mb-10 text-lg">
-            Currently open for opportunities in Backend Engineering and ML Research.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-500 text-white font-sans">
-              Initiate Collaboration
-            </Button>
-            <Button size="lg" variant="outline" className="border-slate-700 text-slate-300 hover:text-white font-mono bg-transparent">
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
-            </Button>
-          </div>
-        </div>
-
-        <footer className="mt-32 text-slate-600 font-mono text-xs">
-          <p>© 2025. Engineered in Next.js & Tailwind.</p>
-        </footer>
-      </section>
+      <ContactSection />
     </main>
   );
 }

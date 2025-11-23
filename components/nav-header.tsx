@@ -2,6 +2,16 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose
+} from "@/components/ui/sheet";
 
 export function NavHeader() {
   const navItems = [
@@ -21,6 +31,7 @@ export function NavHeader() {
         <span className="text-teal-400">01.</span> Portfolio
       </div>
 
+      {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-8">
         {navItems.map((item) => (
           <Link 
@@ -32,6 +43,35 @@ export function NavHeader() {
           </Link>
         ))}
       </nav>
+
+      {/* Mobile Navigation via Sheet */}
+      <div className="md:hidden">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="text-slate-300 hover:text-teal-400">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="bg-slate-950 border-l-slate-800 w-[300px]">
+            <SheetHeader>
+              <SheetTitle className="font-serif text-left text-teal-500">Navigation</SheetTitle>
+            </SheetHeader>
+            <div className="flex flex-col gap-6 mt-8">
+              {navItems.map((item) => (
+                <SheetClose key={item.name} asChild>
+                  <Link 
+                    href={item.href}
+                    className="text-lg font-mono text-slate-400 hover:text-teal-400 transition-colors uppercase tracking-widest"
+                  >
+                    {item.name}
+                  </Link>
+                </SheetClose>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
     </motion.header>
   );
 }

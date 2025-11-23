@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 interface ResearchCardProps {
   title: string;
@@ -18,7 +19,7 @@ interface ResearchCardProps {
 const MotionCard = motion(Card);
 
 export function ResearchCard({ title, category, abstract, techStack, metrics, link }: ResearchCardProps) {
-  return (
+  const content = (
     <MotionCard
       whileHover={{ y: -5 }}
       // Using Shadcn Card classes + custom border overrides
@@ -63,9 +64,9 @@ export function ResearchCard({ title, category, abstract, techStack, metrics, li
           </div>
           
           {link && (
-            <a href={link} className="mt-auto flex items-center gap-2 text-sm font-medium text-slate-100 hover:text-teal-400 transition-colors">
+            <div className="mt-auto flex items-center gap-2 text-sm font-medium text-slate-100 group-hover:text-teal-400 transition-colors">
               View Study <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </div>
           )}
         </div>
       </div>
@@ -75,4 +76,6 @@ export function ResearchCard({ title, category, abstract, techStack, metrics, li
       <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-slate-700 opacity-0 group-hover:opacity-100 transition-opacity" />
     </MotionCard>
   );
+
+  return link ? <Link href={link}>{content}</Link> : content;
 }
