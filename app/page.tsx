@@ -11,14 +11,6 @@ import { Separator } from "@/components/ui/separator";
 export default function Home() {
   const projects = [
     {
-      title: "AI-Powered Loan Underwriting Engine (LEUDE)",
-      category: "FinTech / Systems",
-      metrics: "Microservices Architecture",
-      abstract: "Engineered the 'Digital Filer' MVP by building a Go (Golang) microservice and a Next.js portal. Orchestrated the full dev environment with PostgreSQL, Kafka, and MinIO using Docker Compose.",
-      techStack: ["Go", "Next.js", "Docker", "Kafka", "Neo4j"],
-      link: "/projects/loan-underwriting-system",
-    },
-    {
       title: "AI Career Companion",
       category: "Generative AI",
       metrics: "Powered by Gemini Pro",

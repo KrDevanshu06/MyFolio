@@ -13,13 +13,6 @@ export default function Archive() {
   const items = [
     {
       year: "2025",
-      project: "Loan Underwriting Engine",
-      type: "Project",
-      stack: ["Go", "Kafka", "Neo4j"],
-      link: "/projects/loan-underwriting-system",
-    },
-    {
-      year: "2025",
       project: "Summer Analytics Hackathon",
       type: "Award",
       stack: ["IIT Guwahati", "Winner"],

@@ -8,14 +8,6 @@ import { Badge } from "@/components/ui/badge";
 export function Trajectory() {
   const timeline = [
     {
-      year: "Oct 2025 - Present",
-      title: "Loan Underwriting Engine (LEUDE)",
-      role: "Lead Architect",
-      description: "Engineering the 'Digital Filer' MVP using Go microservices and Next.js. Orchestrating a full dev environment with Kafka, MinIO, and Neo4j via Docker.",
-      icon: Code,
-      tags: ["Go", "Microservices", "Kafka"]
-    },
-    {
       year: "May 2025 - Aug 2025",
       title: "Infotact Solutions",
       role: "Data Associate L1 Intern",
