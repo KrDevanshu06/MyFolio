@@ -10,27 +10,26 @@ repo: "https://github.com/krdevanshu06/commit-streak"
 
 Open-source software development relies heavily on consistent contributor engagement. This research examines the application of **gamification principles** to developer workflow visualization, specifically through the implementation of an interactive commit streak tracking system. Our findings demonstrate a significant correlation between visual feedback mechanisms and sustained contribution patterns.
 
-<Separator className="my-8" />
 
-## 1. Introduction
+## Introduction
 
 Developer motivation in open-source projects remains a critical factor in project sustainability. Traditional metrics like commit counts fail to capture the consistency aspect of contributions, which is often more valuable than volume alone.
 
-### 1.1 Problem Statement
+### Problem Statement
 
 - **Inconsistent Contribution Patterns**: Developers often lose momentum in open-source projects
 - **Lack of Visual Feedback**: GitHub's native interface provides limited motivational elements  
 - **Poor Streak Awareness**: Contributors are unaware of their contribution consistency
 
-### 1.2 Research Objectives
+### Research Objectives
 
 1. Design a real-time visualization system for GitHub commit data
 2. Implement gamification elements to encourage consistent contributions
 3. Measure the impact on user engagement and retention metrics
 
-## 2. System Architecture
+## System Architecture
 
-### 2.1 Data Acquisition Layer
+### Data Acquisition Layer
 
 The system utilizes the **GitHub REST API v4** to fetch commit data in real-time:
 
@@ -70,7 +69,7 @@ class GitHubDataService {
 }
 ```
 
-### 2.2 Streak Calculation Algorithm
+### Streak Calculation Algorithm
 
 The core streak calculation employs a **sliding window approach** with optimal time complexity:
 
@@ -120,9 +119,9 @@ function calculateStreaks(commits: GitHubCommit[]): StreakData {
 
 The algorithm achieves **O(n + d)** time complexity, where n is the number of commits and d is the number of days analyzed (typically 365).
 
-## 3. Visualization Engine
+## Visualization Engine
 
-### 3.1 Heatmap Generation
+### Heatmap Generation
 
 The visual representation employs a **grid-based heatmap** similar to GitHub's contribution graph, but with enhanced interactivity:
 
@@ -179,7 +178,7 @@ const CommitHeatmap: React.FC<HeatmapProps> = ({ commits, year }) => {
 };
 ```
 
-### 3.2 Gamification Elements
+### Gamification Elements
 
 The system incorporates multiple psychological triggers:
 
@@ -207,9 +206,9 @@ const StreakProgress: React.FC<{ current: number; target: number }> = ({ current
 );
 ```
 
-## 4. Performance Optimization
+## Performance Optimization
 
-### 4.1 Caching Strategy
+### Caching Strategy
 
 To minimize API calls and improve user experience:
 
@@ -236,7 +235,7 @@ class CacheManager {
 }
 ```
 
-### 4.2 Rate Limiting Compliance
+### Rate Limiting Compliance
 
 GitHub API rate limits require careful request management:
 
@@ -244,9 +243,9 @@ GitHub API rate limits require careful request management:
 - **Search API**: 30 requests per minute
 - **Implementation**: Exponential backoff with jitter
 
-## 5. Experimental Results
+## Experimental Results
 
-### 5.1 User Engagement Metrics
+### User Engagement Metrics
 
 | Metric | Before Implementation | After Implementation | Improvement |
 |--------|----------------------|---------------------|-------------|
@@ -255,7 +254,7 @@ GitHub API rate limits require careful request management:
 | Commits per User (Weekly) | 4.1 | 6.8 | **+66%** |
 | User Retention (30-day) | 23% | 32% | **+39%** |
 
-### 5.2 Statistical Analysis
+### Statistical Analysis
 
 Using a **two-sample t-test** on user engagement data (n=150):
 
@@ -267,9 +266,9 @@ Using a **two-sample t-test** on user engagement data (n=150):
 
 The results demonstrate **statistical significance** in favor of the gamification approach.
 
-## 6. Technical Implementation Details
+## Technical Implementation Details
 
-### 6.1 Real-time Updates
+### Real-time Updates
 
 The system employs **WebSocket connections** for live streak updates:
 
@@ -294,7 +293,7 @@ class RealtimeStreakService {
 }
 ```
 
-### 6.3 Mobile Responsiveness
+### Mobile Responsiveness
 
 The application implements **responsive design principles**:
 
@@ -318,24 +317,24 @@ The application implements **responsive design principles**:
 }
 ```
 
-## 7. User Experience Design
+## User Experience Design
 
-### 7.1 Psychological Principles Applied
+### Psychological Principles Applied
 
 1. **Variable Ratio Reinforcement**: Unpredictable reward timing increases engagement
 2. **Social Proof**: Public streak displays encourage competition
 3. **Loss Aversion**: Fear of breaking streaks motivates consistency
 4. **Progress Indicators**: Clear visualization of advancement toward goals
 
-### 7.2 Accessibility Considerations
+### Accessibility Considerations
 
 - **Color Blindness Support**: Alternative visual indicators beyond color
 - **Screen Reader Compatibility**: Proper ARIA labels and semantic HTML
 - **Keyboard Navigation**: Full functionality without mouse interaction
 
-## 8. Future Enhancements
+## Future Enhancements
 
-### 8.1 Machine Learning Integration
+### Machine Learning Integration
 
 Planned features include **predictive analytics** for contribution patterns:
 
@@ -343,28 +342,27 @@ $$P(\text{commit tomorrow}) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \cdot \text{st
 
 Where the logistic regression model predicts commit probability based on current streak length and temporal factors.
 
-### 8.2 Team Collaboration Features
+### Team Collaboration Features
 
 - **Team Streaks**: Collective progress tracking
 - **Peer Challenges**: Friendly competition between developers
 - **Mentorship Integration**: Senior developers guiding junior contributors
 
-## 9. Conclusion
+## Conclusion
 
 The implementation of gamification principles in developer workflow visualization demonstrates **measurable improvements** in user engagement and contribution consistency. The 40% increase in user retention validates the hypothesis that visual feedback loops significantly impact developer motivation.
 
-### 9.1 Key Contributions
+### Key Contributions
 
 1. **Real-time GitHub API integration** with optimal performance
 2. **Psychologically-informed gamification design** based on behavioral science
 3. **Comprehensive analytics framework** for measuring engagement
 4. **Open-source implementation** enabling community adoption
 
-### 9.2 Broader Implications
+### Broader Implications
 
 This research contributes to the understanding of **developer motivation** in open-source ecosystems and provides a framework for increasing sustained participation in collaborative software development.
 
-<Separator className="my-8" />
 
 ---
 

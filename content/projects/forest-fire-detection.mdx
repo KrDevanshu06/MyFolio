@@ -6,22 +6,22 @@ tech: ["Python", "TensorFlow", "CNN", "OpenCV", "Matplotlib"]
 repo: "https://github.com/krdevanshu06"
 ---
 
-## 1. Problem Statement
+## Problem Statement
 
 Early detection of forest fires is critical for containment. Satellite latency is often too high, necessitating low-altitude aerial surveillance (drones) processed by efficient edge-compatible models.
 
-## 2. Methodology
+## Methodology
 
 We designed a custom **Convolutional Neural Network (CNN)** architecture optimized for binary classification (Fire / No-Fire).
 
-### 2.1 Data Preprocessing
+### Data Preprocessing
 
 To reduce false alarms (often caused by sunsets or red foliage), we implemented aggressive augmentation:
 
 * **Color Jittering:** Varying saturation to force the model to learn texture, not just color.
 * **Random Rotation:** Ensuring orientation invariance.
 
-### 2.2 Model Architecture
+### Model Architecture
 
 ```python
 model = Sequential([
@@ -38,7 +38,7 @@ model = Sequential([
 ])
 ```
 
-## 3. Performance Metrics
+## Performance Metrics
 
 The model was evaluated on a dataset of 10,000+ aerial images.
 
@@ -48,6 +48,6 @@ The model was evaluated on a dataset of 10,000+ aerial images.
 | False Alarm Reduction | 30% |
 | Inference Time | 45ms |
 
-## 4. Conclusion
+## Conclusion
 
 By optimizing the batch training process and refining the dataset, we created a model viable for deployment on drone hardware with limited GPU overhead.

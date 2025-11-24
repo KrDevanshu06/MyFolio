@@ -1,43 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Trophy, Briefcase, Code } from "lucide-react";
+import { GraduationCap, Trophy, Briefcase, Code, Database } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export function Trajectory() {
   const timeline = [
     {
-      year: "2025",
-      title: "Full Stack Engineer",
-      role: "Building GitHub Streak Gamification",
-      description: "Architected a real-time visualization engine using Next.js and GraphQL to improve open-source contribution consistency.",
+      year: "Oct 2025 - Present",
+      title: "Loan Underwriting Engine (LEUDE)",
+      role: "Lead Architect",
+      description: "Engineering the 'Digital Filer' MVP using Go microservices and Next.js. Orchestrating a full dev environment with Kafka, MinIO, and Neo4j via Docker.",
       icon: Code,
-      tags: ["Next.js", "System Design"]
+      tags: ["Go", "Microservices", "Kafka"]
     },
     {
-      year: "2025",
-      title: "Smart India Hackathon",
-      role: "Team Lead & Architect",
-      description: "Led a team of 6 to build a centralized alumni data platform. Solved data fragmentation issues using a microservices approach.",
-      icon: Trophy,
-      tags: ["Leadership", "React", "AWS"]
+      year: "May 2025 - Aug 2025",
+      title: "Infotact Solutions",
+      role: "Data Associate L1 Intern",
+      description: "Developed a movie recommendation system using SVD and KNN models (81.02% Precision). Led the project team and managed delivery timelines.",
+      icon: Database,
+      tags: ["Data Science", "SVD/KNN", "Leadership"]
     },
     {
-      year: "2024",
-      title: "GATE Preparation",
-      role: "Engineering Mathematics & Algorithms",
-      description: "Deep dive into matrix theory, graph algorithms, and compiler design principles. Focusing on optimizing computational complexity.",
+      year: "Mar 2025 - May 2025",
+      title: "Edunet Foundation",
+      role: "Artificial Intelligence Intern",
+      description: "Dual internship (Shell & Microsoft). Designed CNN models for forest fire detection and gained expertise in Azure AI ecosystem.",
       icon: Briefcase,
-      tags: ["Algorithms", "Math"]
+      tags: ["CNN", "TensorFlow", "Azure"]
     },
     {
-      year: "2021 - 2025",
-      title: "NIT Jamshedpur",
-      role: "B.Tech in Computer Science",
-      description: "Maintained 8.5 CGPA while specializing in Distributed Systems and AI. Active member of the coding society.",
-      icon: GraduationCap,
-      tags: ["Education", "CS Fundamentals"]
+      year: "Dec 2024 - Jan 2025",
+      title: "Edunet Foundation (Microsoft & SAP)",
+      role: "Artificial Intelligence Intern",
+      description: "Developed a Plant Disease Detection model achieving 92% accuracy. Processed 10k+ leaf images using Python and Pandas.",
+      icon: Briefcase,
+      tags: ["Deep Learning", "Computer Vision"]
+    },
+    {
+      year: "Aug 2025",
+      title: "Summer Analytics Hackathon",
+      role: "IIT Guwahati",
+      description: "Secured a winning position among top 50 participants in a national-level analytics event.",
+      icon: Trophy,
+      tags: ["Winner", "Analytics"]
     },
   ];
 

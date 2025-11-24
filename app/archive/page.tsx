@@ -5,53 +5,81 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata = {
-  title: "Archive | KrDevanshu06",
-  description: "A complete catalog of engineering logs and experiments.",
+  title: "Archive | Devanshu Kumar Prasad",
+  description: "A complete catalog of engineering logs, certifications, and experiments.",
 };
 
 export default function Archive() {
-  const projects = [
+  const items = [
     {
-      year: "2024",
-      project: "Commit Streak Gamification",
-      madeAt: "Personal",
-      builtWith: ["Next.js", "Redis", "GitHub API"],
-      link: "https://github.com/krdevanshu06/commit-streak",
+      year: "2025",
+      project: "Loan Underwriting Engine",
+      type: "Project",
+      stack: ["Go", "Kafka", "Neo4j"],
+      link: "/projects/loan-underwriting-system",
+    },
+    {
+      year: "2025",
+      project: "Summer Analytics Hackathon",
+      type: "Award",
+      stack: ["IIT Guwahati", "Winner"],
+      link: "#",
+    },
+    {
+      year: "2025",
+      project: "Movie Recommendation System",
+      type: "Internship",
+      stack: ["Python", "SVD", "KNN"],
+      link: "/projects/movie-recommendation",
+    },
+    {
+      year: "2025",
+      project: "McKinsey Forward Learning",
+      type: "Certification",
+      stack: ["Critical Thinking", "Problem Solving"],
+      link: "#",
+    },
+    {
+      year: "2025",
+      project: "AI Career Companion",
+      type: "Project",
+      stack: ["GenAI", "Gemini Pro"],
+      link: "/projects/ai-career-companion",
+    },
+    {
+      year: "2025",
+      project: "Code in Place",
+      type: "Certification",
+      stack: ["Stanford University", "Python"],
+      link: "#",
+    },
+    {
+      year: "2025",
+      project: "Forest Fire Detection",
+      type: "Project",
+      stack: ["CNN", "Deep Learning"],
+      link: "/projects/forest-fire-detection",
     },
     {
       year: "2024",
-      project: "Neural Network Optimizer",
-      madeAt: "Research",
-      builtWith: ["Python", "TensorFlow"],
-      link: "/projects/neural-optimization",
+      project: "Plant Disease Detection",
+      type: "Project",
+      stack: ["TensorFlow", "Scikit-learn"],
+      link: "/projects/plant-disease-detection",
     },
     {
-      year: "2023",
-      project: "Alumni Platform",
-      madeAt: "Smart India Hackathon",
-      builtWith: ["React", "Node.js", "AWS"],
-      link: "https://github.com/krdevanshu06/alumni-platform",
+      year: "2024",
+      project: "Google Cloud Certification",
+      type: "Certification",
+      stack: ["Cloud Skills Boost"],
+      link: "#",
     },
     {
-      year: "2023",
-      project: "Distributed Data Pipeline",
-      madeAt: "Systems Engineering",
-      builtWith: ["Go", "Kafka", "Docker"],
-      link: "/projects/microservices-architecture",
-    },
-    {
-      year: "2022",
-      project: "Algorithmic Suite",
-      madeAt: "Competitive Programming",
-      builtWith: ["C++", "STL"],
-      link: "https://github.com/krdevanshu06/cpp-algo",
-    },
-    {
-      year: "2022",
-      project: "Portfolio v1",
-      madeAt: "Personal",
-      builtWith: ["HTML", "SCSS", "JS"],
-      link: "https://v1.krdevanshu.com", // Example
+      year: "2024",
+      project: "AWS Cloud Practitioner",
+      type: "Certification",
+      stack: ["AWS Essentials"],
+      link: "#",
     },
   ];
 
@@ -66,7 +94,7 @@ export default function Archive() {
               Archive
             </h1>
             <p className="font-sans text-slate-400 max-w-xl text-lg">
-              A comprehensive list of things I&apos;ve built, broken, and re-assembled.
+              A comprehensive log of projects, certifications, and achievements.
             </p>
           </header>
 
@@ -76,14 +104,14 @@ export default function Archive() {
               <thead className="text-xs uppercase bg-slate-900/50 text-slate-300 font-mono border-b border-slate-800">
                 <tr>
                   <th scope="col" className="px-6 py-4">Year</th>
-                  <th scope="col" className="px-6 py-4">Project</th>
-                  <th scope="col" className="px-6 py-4 hidden md:table-cell">Made at</th>
-                  <th scope="col" className="px-6 py-4 hidden lg:table-cell">Built with</th>
+                  <th scope="col" className="px-6 py-4">Entry</th>
+                  <th scope="col" className="px-6 py-4 hidden md:table-cell">Type</th>
+                  <th scope="col" className="px-6 py-4 hidden lg:table-cell">Tags</th>
                   <th scope="col" className="px-6 py-4">Link</th>
                 </tr>
               </thead>
               <tbody className="font-mono">
-                {projects.map((item, index) => (
+                {items.map((item, index) => (
                   <tr 
                     key={index} 
                     className="border-b border-slate-800/50 hover:bg-slate-900/30 transition-colors group"
@@ -92,10 +120,10 @@ export default function Archive() {
                     <td className="px-6 py-4 font-bold text-slate-200 group-hover:text-teal-400 transition-colors">
                       {item.project}
                     </td>
-                    <td className="px-6 py-4 hidden md:table-cell">{item.madeAt}</td>
+                    <td className="px-6 py-4 hidden md:table-cell">{item.type}</td>
                     <td className="px-6 py-4 hidden lg:table-cell">
                       <div className="flex gap-2 flex-wrap">
-                        {item.builtWith.map(tech => (
+                        {item.stack.map(tech => (
                           <Badge key={tech} variant="outline" className="border-slate-800 text-xs text-slate-500">
                             {tech}
                           </Badge>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next'; // Add this import
 import { getProjectBySlug, getAllProjects } from '@/lib/project';
@@ -8,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { NavHeader } from '@/components/nav-header';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { SiteFooter } from '@/components/site-footer';
+import { ProjectJsonLd } from '@/components/json-ld';
 import 'katex/dist/katex.min.css'; // Import Math Styles
 import 'highlight.js/styles/github-dark.css'; // Import Code Highlight Styles
 
@@ -63,6 +65,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
     return (
       <div className="min-h-screen bg-slate-950 selection:bg-teal-500/20">
+        <ProjectJsonLd project={frontmatter} slug={params.slug} />
         <ScrollProgress />
         <NavHeader />
         
@@ -87,6 +90,19 @@ export default async function ProjectPage({ params }: { params: { slug: string }
               <h1 className="font-serif text-4xl md:text-5xl text-slate-100 mb-6 leading-tight">
                 {frontmatter.title}
               </h1>
+
+              {/* Project Banner Image */}
+              {frontmatter.banner && (
+                <div className="relative w-full aspect-video mb-8 rounded-lg overflow-hidden border border-slate-800">
+                  <Image 
+                    src={frontmatter.banner} 
+                    alt={frontmatter.title} 
+                    fill 
+                    className="object-cover opacity-80 hover:opacity-100 transition-opacity"
+                    priority
+                  />
+                </div>
+              )}
 
               <div className="flex flex-col md:flex-row md:items-center gap-6 text-sm font-mono text-slate-500 mb-8">
                 <div className="flex items-center">

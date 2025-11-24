@@ -11,37 +11,36 @@ import { Separator } from "@/components/ui/separator";
 export default function Home() {
   const projects = [
     {
-      title: "Neural Network Optimization using Gradient Descent Variants",
-      category: "Machine Learning Research",
-      metrics: "94.7% accuracy with Adam",
-      abstract: "This research investigates the performance characteristics of various gradient descent optimization algorithms including SGD, Adam, RMSprop, and AdaGrad across different neural network architectures.",
-      techStack: ["Python", "TensorFlow", "NumPy", "Matplotlib", "Research"],
-      link: "/projects/neural-optimization", // Matches content/projects/neural-optimization.mdx
+      title: "AI-Powered Loan Underwriting Engine (LEUDE)",
+      category: "FinTech / Systems",
+      metrics: "Microservices Architecture",
+      abstract: "Engineered the 'Digital Filer' MVP by building a Go (Golang) microservice and a Next.js portal. Orchestrated the full dev environment with PostgreSQL, Kafka, and MinIO using Docker Compose.",
+      techStack: ["Go", "Next.js", "Docker", "Kafka", "Neo4j"],
+      link: "/projects/loan-underwriting-system",
     },
     {
-      title: "Scalable Microservices Architecture with Event-Driven Design",
-      category: "Backend Development",
-      metrics: "10k+ req/s throughput",
-      abstract: "Building fault-tolerant distributed systems using message queues and container orchestration. This project demonstrates the implementation of a resilient microservices architecture capable of handling high-throughput data processing.",
-      techStack: ["Go", "Kafka", "Docker", "PostgreSQL", "Kubernetes"],
-      link: "/projects/microservices-architecture", // Matches content/projects/microservices-architecture.mdx
+      title: "AI Career Companion",
+      category: "Generative AI",
+      metrics: "Powered by Gemini Pro",
+      abstract: "Developed a GenAI-powered assistant for career guidance, integrating Gemini Pro with session tracking, logs, and CSV export for analytics. Designed to provide personalized educational roadmaps.",
+      techStack: ["Python", "GenAI", "Pandas", "NumPy"],
+      link: "/projects/ai-career-companion",
     },
     {
-      title: "Alumni Association Platform",
-      category: "Smart India Hackathon",
-      metrics: "Team Lead",
-      abstract: "Architected a centralized platform for alumni data management to solve fragmentation issues in institutional networking. Implemented role-based access control (RBAC) and optimized database queries.",
-      techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
-      // 👇 NEW LINK ADDED
-      link: "/projects/alumni-platform", 
+      title: "Forest Fire Detection System",
+      category: "Computer Vision",
+      metrics: "90% Accuracy",
+      abstract: "Designed and trained a CNN model for forest fire detection on a large aerial image dataset. Implemented optimized data preprocessing to reduce false alarms by 30% and managed GPU overhead.",
+      techStack: ["Python", "TensorFlow", "CNN", "Matplotlib"],
+      link: "/projects/forest-fire-detection",
     },
     {
-      title: "Gamification of Developer Activity via Commit Streaks",
-      category: "Developer Tools",
-      metrics: "40% user retention increase",
-      abstract: "A behavioral study and software implementation designed to increase open-source contribution consistency. We architected a real-time rendering engine that visualizes GitHub API data, resulting in measurable improvements in developer engagement.",
-      techStack: ["Next.js", "TypeScript", "GitHub API", "Tailwind", "Redis"],
-      link: "/projects/commit-streak", 
+      title: "Plant Disease Detection System",
+      category: "Agricultural AI",
+      metrics: "92% Accuracy",
+      abstract: "Processed and analyzed a dataset of over 10,000+ leaf images using Deep Learning. Achieved high accuracy in disease classification to aid early agricultural intervention.",
+      techStack: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
+      link: "/projects/plant-disease-detection",
     }
   ];
 
@@ -57,18 +56,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
             <div>
               <h3 className="font-mono text-teal-500 text-sm mb-2">Education</h3>
-              <p className="font-serif text-2xl text-slate-100">NIT Jamshedpur</p>
-              <p className="text-slate-500 text-sm mt-1">B.Tech Computer Science</p>
+              <p className="font-serif text-2xl text-slate-100">Ganga Institute</p>
+              <p className="text-slate-500 text-sm mt-1">B.Tech CSE (2027)</p>
             </div>
             <div>
               <h3 className="font-mono text-teal-500 text-sm mb-2">Performance</h3>
-              <p className="font-serif text-2xl text-slate-100">8.5 CGPA</p>
-              <p className="text-slate-500 text-sm mt-1">Consistent Academic Excellence</p>
+              <p className="font-serif text-2xl text-slate-100">Hackathon Winner</p>
+              <p className="text-slate-500 text-sm mt-1">IIT Guwahati Summer Analytics</p>
             </div>
             <div>
               <h3 className="font-mono text-teal-500 text-sm mb-2">Focus</h3>
-              <p className="font-serif text-2xl text-slate-100">Systems & AI</p>
-              <p className="text-slate-500 text-sm mt-1">Backend / Machine Learning</p>
+              <p className="font-serif text-2xl text-slate-100">AI & Systems</p>
+              <p className="text-slate-500 text-sm mt-1">Full Stack / GenAI</p>
             </div>
           </div>
         </div>

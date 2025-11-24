@@ -16,13 +16,12 @@ demo: "https://microservices-demo.herokuapp.com"
 
 Modern distributed systems require robust architectures that can handle failure gracefully while maintaining high availability and performance. This project implements a **microservices architecture** with event-driven communication patterns, demonstrating best practices for building scalable backend systems.
 
-<Separator className="my-8" />
 
-## 1. System Architecture Overview
+## System Architecture Overview
 
 Our distributed system consists of multiple loosely-coupled services that communicate through message queues and REST APIs. The architecture follows the **Single Responsibility Principle**, where each service handles a specific business domain.
 
-### 1.1 Core Components
+### Core Components
 
 - **API Gateway**: Routes requests and handles authentication
 - **User Service**: Manages user profiles and authentication
@@ -30,9 +29,9 @@ Our distributed system consists of multiple loosely-coupled services that commun
 - **Notification Service**: Manages event-driven notifications
 - **Analytics Service**: Processes metrics and generates reports
 
-## 2. Technology Stack
+## Technology Stack
 
-### 2.1 Backend Services
+### Backend Services
 
 ```go
 // Example microservice structure in Go
@@ -91,7 +90,7 @@ func (s *UserService) publishUserCreatedEvent(user User) {
 }
 ```
 
-### 2.2 Event-Driven Architecture
+### Event-Driven Architecture
 
 The system leverages **Apache Kafka** for asynchronous communication between services. This approach provides several benefits:
 
@@ -114,9 +113,9 @@ The system leverages **Apache Kafka** for asynchronous communication between ser
                    └─────────────┘
 ```
 
-## 3. Implementation Details
+## Implementation Details
 
-### 3.1 Docker Containerization
+### Docker Containerization
 
 Each microservice is containerized using Docker for consistent deployment across environments:
 
@@ -141,7 +140,7 @@ EXPOSE 8080
 CMD ["./main"]
 ```
 
-### 3.2 Container Orchestration
+### Container Orchestration
 
 Docker Compose configuration for local development:
 
@@ -201,11 +200,11 @@ volumes:
   postgres_data:
 ```
 
-## 4. Performance Metrics
+## Performance Metrics
 
-<Badge variant="secondary">Load Testing Results</Badge>
+*Load Testing Results*
 
-### 4.1 Throughput Analysis
+### Throughput Analysis
 
 | Service | Requests/sec | Avg Response Time | 99th Percentile |
 |---------|-------------|------------------|-----------------|
@@ -214,7 +213,7 @@ volumes:
 | Notification | 5,000 | 8ms | 25ms |
 | Analytics | 1,200 | 150ms | 400ms |
 
-### 4.2 Resource Utilization
+### Resource Utilization
 
 The containerized architecture provides excellent resource efficiency:
 
@@ -223,9 +222,9 @@ The containerized architecture provides excellent resource efficiency:
 - **Network I/O**: 500MB/s sustained throughput
 - **Disk I/O**: 150 IOPS average with SSD storage
 
-## 5. Fault Tolerance Patterns
+## Fault Tolerance Patterns
 
-### 5.1 Circuit Breaker Implementation
+### Circuit Breaker Implementation
 
 ```go
 type CircuitBreaker struct {
@@ -273,7 +272,7 @@ func (cb *CircuitBreaker) Call(fn func() error) error {
 }
 ```
 
-### 5.2 Health Monitoring
+### Health Monitoring
 
 Each service implements health check endpoints for monitoring:
 
@@ -299,9 +298,9 @@ func checkDatabase() string {
 }
 ```
 
-## 6. Monitoring and Observability
+## Monitoring and Observability
 
-### 6.1 Metrics Collection
+### Metrics Collection
 
 The system implements comprehensive monitoring using:
 
@@ -310,7 +309,7 @@ The system implements comprehensive monitoring using:
 - **Jaeger**: For distributed tracing
 - **ELK Stack**: For centralized logging
 
-### 6.2 Key Performance Indicators
+### Key Performance Indicators
 
 > **Availability**: 99.9% uptime achieved through redundancy and health checks
 
@@ -318,9 +317,9 @@ The system implements comprehensive monitoring using:
 
 > **Throughput**: Sustained 10,000+ requests per second during peak traffic
 
-## 7. Deployment Strategy
+## Deployment Strategy
 
-### 7.1 Blue-Green Deployment
+### Blue-Green Deployment
 
 The system supports zero-downtime deployments using blue-green deployment patterns:
 
@@ -329,7 +328,7 @@ The system supports zero-downtime deployments using blue-green deployment patter
 3. Gradually route traffic from production (Blue) to staging (Green)
 4. Monitor metrics and rollback if issues detected
 
-### 7.2 Infrastructure as Code
+### Infrastructure as Code
 
 ```yaml
 # Kubernetes deployment example
@@ -367,29 +366,28 @@ spec:
             cpu: "500m"
 ```
 
-## 8. Lessons Learned
+## Lessons Learned
 
-### 8.1 Design Principles
+### Design Principles
 
 1. **Start Simple**: Begin with a monolith and extract services as needed
 2. **Data Consistency**: Implement eventual consistency patterns for distributed data
 3. **Service Boundaries**: Define clear business domain boundaries
 4. **Testing Strategy**: Implement contract testing for service interactions
 
-### 8.2 Common Pitfalls
+### Common Pitfalls
 
 - **Distributed Transactions**: Avoided in favor of eventual consistency
 - **Service Chatty-ness**: Minimized with proper API design
 - **Configuration Management**: Centralized using environment variables and secrets
 
-## 9. Future Enhancements
+## Future Enhancements
 
 - **Service Mesh**: Implementation of Istio for advanced traffic management
 - **Event Sourcing**: Addition of event sourcing patterns for audit trails  
 - **CQRS**: Command Query Responsibility Segregation for read/write optimization
 - **Auto-scaling**: Horizontal Pod Autoscaler based on custom metrics
 
-<Separator className="my-8" />
 
 ---
 

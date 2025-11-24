@@ -4,6 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from "@/components/ui/sonner";
 import { ContextMenu } from "@/components/context-menu";
+import { PersonJsonLd } from "@/components/json-ld";
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -71,6 +72,7 @@ export default function RootLayout({
         jetbrains.variable,
         "bg-background text-foreground min-h-screen"
       )}>
+        <PersonJsonLd />
         <ContextMenu />
         {children}
         <Toaster position="bottom-right" />

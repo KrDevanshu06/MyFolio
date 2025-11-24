@@ -6,7 +6,7 @@ import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-  title: "Experience | KrDevanshu06",
+  title: "Experience | Devanshu Kumar Prasad",
   description: "Professional trajectory and academic history.",
 };
 
@@ -46,16 +46,23 @@ export default function Experience() {
                 <div className="group">
                   <div className="flex justify-between items-baseline mb-2">
                     <h3 className="font-serif text-xl text-slate-200 group-hover:text-teal-400 transition-colors">
-                      NIT Jamshedpur
+                      Ganga Institute of Technology
                     </h3>
-                    <span className="font-mono text-sm text-slate-500">2021 — 2025</span>
+                    <span className="font-mono text-sm text-slate-500">Aug 2024 — Jul 2027</span>
                   </div>
-                  <p className="text-slate-400 mb-4">Bachelor of Technology in Computer Science & Engineering</p>
-                  <ul className="list-disc list-inside text-slate-500 space-y-2 text-sm">
-                    <li>CGPA: <span className="text-slate-300">8.5 / 10.0</span></li>
-                    <li>Relevant Coursework: Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks, Compiler Design.</li>
-                    <li>Key Achievement: Finalist in Smart India Hackathon 2023.</li>
-                  </ul>
+                  <p className="text-slate-400 mb-2">Bachelor of Technology in Computer Science</p>
+                  <div className="text-sm text-slate-500">Jhajjar, Haryana</div>
+                </div>
+
+                <div className="group">
+                  <div className="flex justify-between items-baseline mb-2">
+                    <h3 className="font-serif text-xl text-slate-200 group-hover:text-teal-400 transition-colors">
+                      Government Polytechnic Adityapur
+                    </h3>
+                    <span className="font-mono text-sm text-slate-500">Dec 2021 — Jul 2024</span>
+                  </div>
+                  <p className="text-slate-400 mb-2">Diploma in Computer Science</p>
+                  <div className="text-sm text-slate-500">Jamshedpur, Jharkhand</div>
                 </div>
               </div>
             </section>
@@ -72,34 +79,43 @@ export default function Experience() {
                 <div className="group">
                   <div className="flex justify-between items-baseline mb-2">
                     <h3 className="font-serif text-xl text-slate-200 group-hover:text-teal-400 transition-colors">
-                      Full Stack Developer Intern
+                      Data Associate L1 Intern
                     </h3>
-                    <span className="font-mono text-sm text-slate-500">Summer 2024</span>
+                    <span className="font-mono text-sm text-slate-500">May 2025 — Aug 2025</span>
                   </div>
-                  <p className="text-slate-400 mb-4">TechCorp Inc. • Remote</p>
+                  <p className="text-slate-400 mb-4">Infotact Solutions • Remote</p>
                   <ul className="list-disc list-inside text-slate-500 space-y-2 text-sm">
-                    <li>Optimized PostgreSQL database queries reducing report generation time by <span className="text-teal-500">40%</span>.</li>
-                    <li>Integrated Redis caching layer to handle high-concurrency API requests during peak loads.</li>
-                    <li>Migrated legacy React class components to Functional components with Hooks.</li>
+                    <li>Developed a movie recommendation system using SVD and KNN models (81.02% Precision).</li>
+                    <li>Led the project team, coordinating tasks and managing timelines for successful delivery.</li>
                   </ul>
-                  <div className="flex gap-2 mt-4">
-                    <Badge variant="secondary" className="bg-slate-900 text-slate-400">React</Badge>
-                    <Badge variant="secondary" className="bg-slate-900 text-slate-400">PostgreSQL</Badge>
-                    <Badge variant="secondary" className="bg-slate-900 text-slate-400">Redis</Badge>
-                  </div>
                 </div>
 
                 <div className="group">
                   <div className="flex justify-between items-baseline mb-2">
                     <h3 className="font-serif text-xl text-slate-200 group-hover:text-teal-400 transition-colors">
-                      Open Source Contributor
+                      Artificial Intelligence Intern
                     </h3>
-                    <span className="font-mono text-sm text-slate-500">2022 — Present</span>
+                    <span className="font-mono text-sm text-slate-500">Mar 2025 — May 2025</span>
                   </div>
-                  <p className="text-slate-400 mb-4">GitHub Community</p>
+                  <p className="text-slate-400 mb-4">Edunet Foundation (Shell & Microsoft) • Remote</p>
                   <ul className="list-disc list-inside text-slate-500 space-y-2 text-sm">
-                    <li>Contributed to documentation and bug fixes for popular libraries like Shadcn UI and Next.js examples.</li>
-                    <li>Maintained &quot;Commit Streak,&quot; a tool used by 100+ developers to track productivity.</li>
+                    <li>Designed CNN model for forest fire detection achieving &gt;90% accuracy.</li>
+                    <li>Optimized data preprocessing to reduce false alarms by 30%.</li>
+                    <li>Gained practical knowledge of Azure AI services and deployment.</li>
+                  </ul>
+                </div>
+
+                <div className="group">
+                  <div className="flex justify-between items-baseline mb-2">
+                    <h3 className="font-serif text-xl text-slate-200 group-hover:text-teal-400 transition-colors">
+                      Artificial Intelligence Intern
+                    </h3>
+                    <span className="font-mono text-sm text-slate-500">Dec 2024 — Jan 2025</span>
+                  </div>
+                  <p className="text-slate-400 mb-4">Edunet Foundation (Microsoft & SAP) • Remote</p>
+                  <ul className="list-disc list-inside text-slate-500 space-y-2 text-sm">
+                    <li>Developed Plant Disease Detection model using TensorFlow (92% accuracy).</li>
+                    <li>Processed 10,000+ leaf images using Python and Pandas.</li>
                   </ul>
                 </div>
               </div>
