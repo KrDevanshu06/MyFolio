@@ -39,7 +39,12 @@ export function ContactSection() {
             <Copy className="mr-2 h-4 w-4 hidden group-hover:inline" />
             Copy Email Address
           </Button>
-          <Button size="lg" variant="outline" className="border-slate-700 text-slate-300 hover:text-white font-mono bg-transparent">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border-slate-700 text-slate-300 hover:text-white font-mono bg-transparent"
+            onClick={() => window.open('/resume.pdf', '_blank')}
+          >
             <Download className="mr-2 h-4 w-4" />
             Download Resume
           </Button>

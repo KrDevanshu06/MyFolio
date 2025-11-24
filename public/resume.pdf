@@ -1,0 +1,8 @@
+This is a placeholder for your resume PDF file.
+
+To complete the setup:
+1. Create your actual resume as a PDF file
+2. Name it "resume.pdf"
+3. Replace this file in the public/ folder
+
+The download functionality is now connected and ready to work with your actual resume PDF.

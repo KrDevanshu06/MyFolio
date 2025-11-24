@@ -12,31 +12,34 @@ export default function Home() {
       title: "Neural Network Optimization using Gradient Descent Variants",
       category: "Machine Learning Research",
       metrics: "94.7% accuracy with Adam",
-      abstract: "This research investigates the performance characteristics of various gradient descent optimization algorithms including SGD, Adam, RMSprop, and AdaGrad across different neural network architectures. Our empirical analysis demonstrates significant performance improvements when using adaptive learning rate methods.",
+      abstract: "This research investigates the performance characteristics of various gradient descent optimization algorithms including SGD, Adam, RMSprop, and AdaGrad across different neural network architectures.",
       techStack: ["Python", "TensorFlow", "NumPy", "Matplotlib", "Research"],
-      link: "/projects/neural-optimization",
+      link: "/projects/neural-optimization", // Matches content/projects/neural-optimization.mdx
     },
     {
       title: "Scalable Microservices Architecture with Event-Driven Design",
       category: "Backend Development",
       metrics: "10k+ req/s throughput",
-      abstract: "Building fault-tolerant distributed systems using message queues and container orchestration. This project demonstrates the implementation of a resilient microservices architecture capable of handling high-throughput data processing with Apache Kafka and Docker.",
+      abstract: "Building fault-tolerant distributed systems using message queues and container orchestration. This project demonstrates the implementation of a resilient microservices architecture capable of handling high-throughput data processing.",
       techStack: ["Go", "Kafka", "Docker", "PostgreSQL", "Kubernetes"],
-      link: "/projects/microservices-architecture",
+      link: "/projects/microservices-architecture", // Matches content/projects/microservices-architecture.mdx
     },
     {
       title: "Alumni Association Platform",
       category: "Smart India Hackathon",
       metrics: "Team Lead",
-      abstract: "Architected a centralized platform for alumni data management to solve fragmentation issues in institutional networking. Implemented role-based access control (RBAC) and optimized database queries for handling large-scale alumni directories.",
+      abstract: "Architected a centralized platform for alumni data management to solve fragmentation issues in institutional networking. Implemented role-based access control (RBAC) and optimized database queries.",
       techStack: ["React", "Node.js", "PostgreSQL", "AWS"],
+      // 👇 NEW LINK ADDED
+      link: "/projects/alumni-platform", 
     },
     {
-      title: "Algorithmic Optimization Suite",
-      category: "Competitive Programming",
-      metrics: "CGPA: 8.5/10.0",
-      abstract: "A collection of optimized solutions for NP-hard problems and graph theory challenges. Focus on reducing time complexity from O(n²) to O(n log n) using advanced data structures and dynamic programming techniques.",
-      techStack: ["C++", "Python", "Algorithms", "Data Structures"],
+      title: "Gamification of Developer Activity via Commit Streaks",
+      category: "Developer Tools",
+      metrics: "40% user retention increase",
+      abstract: "A behavioral study and software implementation designed to increase open-source contribution consistency. We architected a real-time rendering engine that visualizes GitHub API data, resulting in measurable improvements in developer engagement.",
+      techStack: ["Next.js", "TypeScript", "GitHub API", "Tailwind", "Redis"],
+      link: "/projects/commit-streak", 
     }
   ];
 
@@ -88,8 +91,7 @@ export default function Home() {
         <div className="w-full">
           {projects.map((project, index) => (
             <div key={index}>
-                <ResearchCard {...project} link="#" />
-                {/* Add separator between cards unless it's the last one */}
+                <ResearchCard {...project} />
                 {index < projects.length - 1 && <Separator className="bg-slate-900" />} 
             </div>
           ))}

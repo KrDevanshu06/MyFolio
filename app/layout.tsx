@@ -20,8 +20,10 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Kinetic Intellect',
-  description: 'Full Stack Engineering & Machine Learning Research',
+  title: 'KrDevanshu06 | Full Stack & ML Engineer',
+  description: 'Portfolio of a Computer Science Engineer from NIT Jamshedpur. Specializing in Distributed Systems, AI/ML, and Algorithmic Optimization.',
+  keywords: ['Next.js', 'React', 'Machine Learning', 'NIT Jamshedpur', 'Full Stack', 'Portfolio'],
+  authors: [{ name: 'KrDevanshu06' }],
 };
 
 export default function RootLayout({

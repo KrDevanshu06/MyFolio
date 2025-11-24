@@ -89,7 +89,7 @@ export function CommandMenu() {
               <span>LinkedIn Handshake</span>
               <CommandShortcut>LI</CommandShortcut>
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => console.log("Downloading..."))}>
+            <CommandItem onSelect={() => runCommand(() => window.open('/resume.pdf', '_blank'))}>
               <Download className="mr-2 h-4 w-4" />
               <span>Export Resume Data</span>
               <CommandShortcut>⌘P</CommandShortcut>
