@@ -46,11 +46,11 @@ export default function Experience() {
                 <div className="group">
                   <div className="flex justify-between items-baseline mb-2">
                     <h3 className="font-serif text-xl text-slate-200 group-hover:text-teal-400 transition-colors">
-                      Ganga Institute of Technology
+                      Ganga Institute of Technology and Management 
                     </h3>
                     <span className="font-mono text-sm text-slate-500">Aug 2024 — Jul 2027</span>
                   </div>
-                  <p className="text-slate-400 mb-2">Bachelor of Technology in Computer Science</p>
+                  <p className="text-slate-400 mb-2">Bachelor of Technology in Computer Science Engineering</p>
                   <div className="text-sm text-slate-500">Jhajjar, Haryana</div>
                 </div>
 
@@ -61,7 +61,7 @@ export default function Experience() {
                     </h3>
                     <span className="font-mono text-sm text-slate-500">Dec 2021 — Jul 2024</span>
                   </div>
-                  <p className="text-slate-400 mb-2">Diploma in Computer Science</p>
+                  <p className="text-slate-400 mb-2">Diploma in Computer Science Engineering</p>
                   <div className="text-sm text-slate-500">Jamshedpur, Jharkhand</div>
                 </div>
               </div>
