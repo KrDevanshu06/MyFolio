@@ -3,41 +3,40 @@ import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeKatex from 'rehype-katex';
-import rehypeSlug from 'rehype-slug'; // New import
+import rehypeSlug from 'rehype-slug'; 
 import remarkMath from 'remark-math';
-import remarkGfm from 'remark-gfm'; // New import
+import remarkGfm from 'remark-gfm'; 
 import { MDXComponents } from './mdx-components';
 
 const contentDir = path.join(process.cwd(), 'content/projects');
 
+export interface ProjectFrontmatter {
+  title: string;
+  subtitle?: string;
+  abstract: string;
+  date: string;
+  tech?: string[];
+  repo?: string;
+  demo?: string;
+  banner?: string;
+}
+
 export async function getProjectBySlug(slug: string) {
   const filePath = path.join(contentDir, `${slug}.mdx`);
   
-  // Guard clause if file doesn't exist
   if (!fs.existsSync(filePath)) {
     throw new Error(`Project file not found: ${slug}`);
   }
 
   const source = fs.readFileSync(filePath, 'utf8');
 
-  const { content, frontmatter } = await compileMDX<{
-    title: string;
-    subtitle?: string;
-    abstract: string;
-    date: string;
-    tech?: string[];
-    repo?: string;
-    demo?: string;
-    banner?: string;
-  }>({
+  const { content, frontmatter } = await compileMDX<ProjectFrontmatter>({
     source,
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        // Add remarkGfm here to support Tables, Strikethrough, etc.
         remarkPlugins: [remarkGfm, remarkMath],
-        // Add rehypeSlug to generate IDs for headings (e.g. #introduction)
-        // @ts-ignore - Types for rehype plugins can be strict, but this works at runtime
+        // @ts-ignore 
         rehypePlugins: [rehypeHighlight, rehypeKatex, rehypeSlug],
       },
     },

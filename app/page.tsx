@@ -33,6 +33,14 @@ export default function Home() {
       abstract: "Processed and analyzed a dataset of over 10,000+ leaf images using Deep Learning. Achieved high accuracy in disease classification to aid early agricultural intervention.",
       techStack: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
       link: "/projects/plant-disease-detection",
+    },
+    {
+      title: "Movie Recommendation System",
+      category: "Data Science",
+      metrics: "81.02% Precision@10",
+      abstract: "Developed a collaborative filtering system using SVD and KNN models during my internship at Infotact. Achieved an RMSE of 0.766, significantly improving recommendation quality.",
+      techStack: ["Python", "Scikit-Learn", "SVD", "KNN"],
+      link: "/projects/movie-recommendation",
     }
   ];
 

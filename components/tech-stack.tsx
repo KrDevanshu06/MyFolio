@@ -10,8 +10,8 @@ export function TechStack() {
   return (
     <section className="py-24 px-6 bg-slate-950 border-b border-slate-900">
       <div className="max-w-4xl mx-auto text-center mb-12">
-        <h2 className="font-serif text-3xl md:text-4xl text-slate-100 mb-4">Technical Arsenal</h2>
-        <p className="font-sans text-slate-400">Operational capabilities and engineering stack.</p>
+        <h2 className="font-serif text-3xl md:text-4xl text-slate-100 mb-4">System Architecture</h2>
+        <p className="font-sans text-slate-400">Operational capabilities and technical stack.</p>
       </div>
 
       <div className="max-w-4xl mx-auto">
@@ -20,11 +20,11 @@ export function TechStack() {
             <TabsList className="grid w-full grid-cols-3 bg-slate-900 border border-slate-800">
               <TabsTrigger value="ai" className="font-mono text-xs md:text-sm data-[state=active]:bg-teal-950 data-[state=active]:text-teal-400">
                 <BrainCircuit className="w-4 h-4 mr-2 hidden md:inline" />
-                AI / Data
+                AI & Data
               </TabsTrigger>
               <TabsTrigger value="backend" className="font-mono text-xs md:text-sm data-[state=active]:bg-teal-950 data-[state=active]:text-teal-400">
                 <Server className="w-4 h-4 mr-2 hidden md:inline" />
-                Dev Tools
+                Tools & Cloud
               </TabsTrigger>
               <TabsTrigger value="languages" className="font-mono text-xs md:text-sm data-[state=active]:bg-teal-950 data-[state=active]:text-teal-400">
                 <Layout className="w-4 h-4 mr-2 hidden md:inline" />
@@ -37,8 +37,8 @@ export function TechStack() {
             <div className="mt-8">
               <TabsContent value="ai">
                 <StackCard 
-                  title="Data Science & ML"
-                  description="Frameworks for predictive modeling and computer vision."
+                  title="Frameworks & Libraries"
+                  description="Predictive modeling and deep learning infrastructure."
                   items={["TensorFlow", "Keras", "Scikit-Learn", "Pandas", "NumPy", "Matplotlib", "OpenCV", "GenAI"]}
                 />
               </TabsContent>
@@ -46,16 +46,16 @@ export function TechStack() {
               <TabsContent value="backend">
                 <StackCard 
                   title="Developer Tools"
-                  description="Infrastructure and database management."
-                  items={["Docker", "Git", "AWS", "GCP", "Jupyter", "DBeaver", "MySQL", "PostgreSQL"]}
+                  description="Infrastructure, version control, and cloud platforms."
+                  items={["Git", "Jupyter Notebook", "Docker", "GCP & Console", "AWS", "DBeaver"]}
                 />
               </TabsContent>
               
               <TabsContent value="languages">
                 <StackCard 
                   title="Core Languages"
-                  description="Foundational programming proficiency."
-                  items={["Python", "C/C++", "MySQL", "Bash", "HTML/CSS"]}
+                  description="The foundation of my engineering capabilities."
+                  items={["Python", "C/C++ (Data Structures)", "MySQL", "Bash"]}
                 />
               </TabsContent>
             </div>

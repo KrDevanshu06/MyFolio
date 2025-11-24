@@ -19,28 +19,25 @@ export async function generateStaticParams() {
   return projects.map((slug) => ({ slug }));
 }
 
-// 👇 NEW FUNCTION
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { frontmatter } = await getProjectBySlug(params.slug);
   
-  // Create a clean tech string (e.g., "React • AWS • Node")
   const techString = frontmatter.tech?.slice(0, 3).join(' • ') || 'Engineering';
   
-  // Encode params for URL
-  const ogUrl = new URL('https://krdevanshu.com/api/og'); // Replace domain
+  const ogUrl = new URL('https://krdevanshu.com/api/og'); 
   ogUrl.searchParams.set('title', frontmatter.title);
   ogUrl.searchParams.set('type', 'Case Study');
   ogUrl.searchParams.set('tech', techString);
 
   return {
-    title: `${frontmatter.title} | KrDevanshu06`,
+    title: `${frontmatter.title} | Devanshu Kumar Prasad`,
     description: frontmatter.abstract,
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.abstract,
       type: 'article',
       publishedTime: frontmatter.date,
-      authors: ['KrDevanshu06'],
+      authors: ['Devanshu Kumar Prasad'],
       images: [
         {
           url: ogUrl.toString(),

@@ -35,7 +35,9 @@ export function NavHeader() {
       });
     }
     // If we're on another page, let the link navigate normally (it will go to homepage with anchor)
-  };  return (
+  };
+
+  return (
     <motion.header 
       initial={{ y: -100 }}
       animate={{ y: 0 }}

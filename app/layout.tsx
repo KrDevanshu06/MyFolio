@@ -23,8 +23,8 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Devanshu Kumar Prasad | AI & Full Stack Engineer',
-  description: 'Portfolio of a Computer Science Engineer specializing in AI/ML, Distributed Systems, and Generative AI. Based in Jamshedpur.',
-  keywords: ['AI/ML', 'Data Science', 'Go', 'Next.js', 'TensorFlow', 'Devanshu Kumar Prasad'],
+  description: 'Portfolio of a Computer Science Engineer from Jamshedpur. Specializing in AI/ML, Data Science, and Distributed Systems.',
+  keywords: ['Python', 'Machine Learning', 'Artificial Intelligence', 'Data Science', 'TensorFlow', 'Devanshu Kumar Prasad'],
   authors: [{ name: 'Devanshu Kumar Prasad' }],
   openGraph: {
     type: "website",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Devanshu Kumar Prasad | AI & Systems",
-    description: "Building intelligent systems with Go, Python, and Cloud Infrastructure.",
+    description: "Building intelligent systems with Python, TensorFlow, and Cloud Infrastructure.",
     creator: "@krdevanshu06", 
     images: ["/api/og?title=Devanshu&type=Portfolio&tech=AI%20%26%20Systems"],
   },

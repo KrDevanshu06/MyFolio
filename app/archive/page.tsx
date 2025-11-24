@@ -62,6 +62,20 @@ export default function Archive() {
     },
     {
       year: "2024",
+      project: "Google Business Intelligence",
+      type: "Certification",
+      stack: ["Google", "Analytics"],
+      link: "#",
+    },
+    {
+      year: "2024",
+      project: "Python Programming",
+      type: "Certification",
+      stack: ["GUVI"],
+      link: "#",
+    },
+    {
+      year: "2024",
       project: "Google Cloud Certification",
       type: "Certification",
       stack: ["Cloud Skills Boost"],

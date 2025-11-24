@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Trophy, Briefcase, Code, Database } from "lucide-react";
+import { GraduationCap, Trophy, Briefcase, Database } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -16,12 +16,20 @@ export function Trajectory() {
       tags: ["Data Science", "SVD/KNN", "Leadership"]
     },
     {
-      year: "Mar 2025 - May 2025",
-      title: "Edunet Foundation",
+      year: "Apr 2025 - May 2025",
+      title: "Edunet Foundation (Microsoft)",
       role: "Artificial Intelligence Intern",
-      description: "Dual internship (Shell & Microsoft). Designed CNN models for forest fire detection and gained expertise in Azure AI ecosystem.",
+      description: "Completed intensive training on Microsoft AI ecosystem. Built and deployed scalable ML models using Azure AI services.",
       icon: Briefcase,
-      tags: ["CNN", "TensorFlow", "Azure"]
+      tags: ["Azure AI", "Machine Learning"]
+    },
+    {
+      year: "Mar 2025 - Apr 2025",
+      title: "Edunet Foundation (AICTE & Shell)",
+      role: "Artificial Intelligence Intern",
+      description: "Designed CNN models for forest fire detection (90% accuracy). Optimized batch training to reduce false alarms by 30%.",
+      icon: Briefcase,
+      tags: ["CNN", "TensorFlow", "Computer Vision"]
     },
     {
       year: "Dec 2024 - Jan 2025",
@@ -29,7 +37,7 @@ export function Trajectory() {
       role: "Artificial Intelligence Intern",
       description: "Developed a Plant Disease Detection model achieving 92% accuracy. Processed 10k+ leaf images using Python and Pandas.",
       icon: Briefcase,
-      tags: ["Deep Learning", "Computer Vision"]
+      tags: ["Deep Learning", "Python"]
     },
     {
       year: "Aug 2025",
@@ -38,6 +46,14 @@ export function Trajectory() {
       description: "Secured a winning position among top 50 participants in a national-level analytics event.",
       icon: Trophy,
       tags: ["Winner", "Analytics"]
+    },
+    {
+      year: "Aug 2024 - Jul 2027",
+      title: "Ganga Institute of Technology",
+      role: "B.Tech in Computer Science",
+      description: "Pursuing Bachelor of Technology in CSE. Focusing on Advanced Data Structures and Cloud Computing.",
+      icon: GraduationCap,
+      tags: ["Education", "B.Tech"]
     },
   ];
 

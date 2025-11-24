@@ -1,13 +1,4 @@
-interface ProjectFrontmatter {
-  title: string;
-  subtitle?: string;
-  abstract: string;
-  date: string;
-  tech?: string[];
-  repo?: string;
-  demo?: string;
-  banner?: string;
-}
+import { ProjectFrontmatter } from "@/lib/project";
 
 export function PersonJsonLd() {
   const jsonLd = {
@@ -15,7 +6,7 @@ export function PersonJsonLd() {
     "@type": "Person",
     name: "Devanshu Kumar Prasad",
     url: "https://krdevanshu.com",
-    jobTitle: "Full Stack & ML Engineer",
+    jobTitle: "Data Associate & AI Engineer",
     alumniOf: [
       {
         "@type": "CollegeOrUniversity",
@@ -32,9 +23,9 @@ export function PersonJsonLd() {
     ],
     knowsAbout: [
       "Machine Learning",
-      "Distributed Systems",
-      "Go (Programming Language)",
-      "Next.js",
+      "Artificial Intelligence",
+      "Data Science",
+      "Python",
       "TensorFlow"
     ],
   };
