@@ -15,20 +15,26 @@ import {
 
 export function NavHeader() {
   const navItems = [
-    { name: "Research", href: "#research" },
-    { name: "Trajectory", href: "#trajectory" },
-    { name: "Engineering", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Research", href: "/#research", isSection: true },
+    { name: "Experience", href: "/experience", isSection: false },
+    { name: "Archive", href: "/archive", isSection: false },
+    { name: "Contact", href: "/#contact", isSection: true },
   ];
 
   // Custom handler for smooth scrolling
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const elem = document.getElementById(targetId);
-    elem?.scrollIntoView({
-      behavior: 'smooth',
-    });
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string, isSection: boolean) => {
+    if (!isSection) return; // Let normal navigation work for pages
+    
+    // Check if we're on homepage and scrolling to section
+    if (window.location.pathname === '/' && href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.replace('/#', '');
+      const elem = document.getElementById(targetId);
+      elem?.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+    // If we're on another page, let the link navigate normally (it will go to homepage with anchor)
   };  return (
     <motion.header 
       initial={{ y: -100 }}
@@ -46,7 +52,7 @@ export function NavHeader() {
           <Link 
             key={item.name} 
             href={item.href}
-            onClick={(e) => handleScroll(e, item.href)}
+            onClick={(e) => handleScroll(e, item.href, item.isSection)}
             className="text-sm font-mono text-slate-400 hover:text-teal-400 transition-colors duration-300 uppercase tracking-wider"
           >
             {item.name}
@@ -72,7 +78,7 @@ export function NavHeader() {
                 <SheetClose key={item.name} asChild>
                   <Link 
                     href={item.href}
-                    onClick={(e) => handleScroll(e, item.href)}
+                    onClick={(e) => handleScroll(e, item.href, item.isSection)}
                     className="text-lg font-mono text-slate-400 hover:text-teal-400 transition-colors uppercase tracking-widest"
                   >
                     {item.name}

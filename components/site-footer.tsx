@@ -10,7 +10,7 @@ export function SiteFooter() {
   const links = [
     { name: "GitHub", href: "https://github.com/krdevanshu06", icon: Github },
     { name: "LinkedIn", href: "https://linkedin.com/in/krdevanshu06", icon: Linkedin },
-    { name: "Email", href: "mailto:your.email@nitjsr.ac.in", icon: Mail },
+    { name: "Email", href: "mailto:krdevanshu06@gmail.com", icon: Mail },
   ];
 
   return (
