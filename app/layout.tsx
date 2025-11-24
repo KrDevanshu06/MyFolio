@@ -21,33 +21,32 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'KrDevanshu06 | Full Stack & ML Engineer',
-  description: 'Portfolio of a Computer Science Engineer from NIT Jamshedpur. Specializing in Distributed Systems, AI/ML, and Algorithmic Optimization.',
-  keywords: ['Next.js', 'React', 'Machine Learning', 'NIT Jamshedpur', 'Full Stack', 'Portfolio'],
-  authors: [{ name: 'KrDevanshu06' }],
-  // 👇 NEW SECTIONS BELOW
+  title: 'Devanshu Kumar Prasad | AI & Full Stack Engineer',
+  description: 'Portfolio of a Computer Science Engineer specializing in AI/ML, Distributed Systems, and Generative AI. Based in Jamshedpur.',
+  keywords: ['AI/ML', 'Data Science', 'Go', 'Next.js', 'TensorFlow', 'Devanshu Kumar Prasad'],
+  authors: [{ name: 'Devanshu Kumar Prasad' }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://krdevanshu.com", // Replace with your Vercel URL once deployed
-    title: "KrDevanshu06 | Kinetic Intellect",
-    description: "Bridging the gap between stochastic research and deterministic engineering.",
-    siteName: "KrDevanshu06 Portfolio",
+    url: "https://krdevanshu.com",
+    title: "Devanshu Kumar Prasad | Kinetic Intellect",
+    description: "Engineering robust systems and exploring the frontiers of artificial intelligence.",
+    siteName: "Devanshu Kumar Prasad Portfolio",
     images: [
       {
-        url: "/api/og?title=KrDevanshu06&type=Portfolio&tech=Full%20Stack%20%26%20ML",
+        url: "/api/og?title=Devanshu&type=Portfolio&tech=AI%20%26%20Systems",
         width: 1200,
         height: 630,
-        alt: "KrDevanshu06 Portfolio",
+        alt: "Devanshu Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KrDevanshu06 | Full Stack & ML",
-    description: "Engineering robust systems and exploring the frontiers of AI.",
-    creator: "@krdevanshu06", // Replace with your handle
-    images: ["/api/og?title=KrDevanshu06&type=Portfolio&tech=Full%20Stack%20%26%20ML"],
+    title: "Devanshu Kumar Prasad | AI & Systems",
+    description: "Building intelligent systems with Go, Python, and Cloud Infrastructure.",
+    creator: "@krdevanshu06", 
+    images: ["/api/og?title=Devanshu&type=Portfolio&tech=AI%20%26%20Systems"],
   },
 };
 

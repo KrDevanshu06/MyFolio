@@ -1,0 +1,56 @@
+---
+title: "Collaborative Filtering Movie Recommendation System"
+date: "2025-08-10"
+abstract: "A data science initiative to improve content discovery. By implementing Matrix Factorization (SVD) and K-Nearest Neighbors (KNN), we achieved a Precision@10 of 81.02% and an RMSE of 0.766."
+tech: ["Python", "Scikit-Learn", "SVD", "KNN", "Pandas"]
+repo: "https://github.com/krdevanshu06"
+---
+
+## 1. Introduction
+
+During my internship at **Infotact Solutions**, the challenge was to improve user engagement by suggesting relevant content. We chose a **Collaborative Filtering** approach to leverage user-item interaction data.
+
+## 2. Mathematical Framework
+
+We utilized **Singular Value Decomposition (SVD)** to decompose the user-item interaction matrix $A$ into latent factors.
+
+$$
+A \approx U \Sigma V^T
+$$
+
+Where:
+* $U$: User preferences matrix
+* $V^T$: Item attributes matrix
+* $\Sigma$: Weights of latent factors
+
+### 2.1 K-Nearest Neighbors (KNN)
+
+For real-time "Similar Item" recommendations, we used KNN with **Cosine Similarity**:
+
+$$
+\text{similarity}(A, B) = \frac{A \cdot B}{||A|| \times ||B||}
+$$
+
+## 3. Implementation
+
+The pipeline involved cleaning the MovieLens dataset, creating a sparse matrix, and training the models.
+
+```python
+from surprise import SVD
+from surprise.model_selection import cross_validate
+
+# Algorithm Selection
+algo = SVD(n_factors=100, n_epochs=20, lr_all=0.005, reg_all=0.02)
+
+# Training and Evaluation
+results = cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+```
+
+## 4. Results
+
+* **RMSE (Root Mean Square Error)**: 0.766 (Lower is better)
+* **Precision@10**: 81.02% (High relevance in top 10 results)
+
+## 5. Conclusion
+
+The hybrid approach of using SVD for matrix completion and KNN for localized similarity proved highly effective for this dataset scale.

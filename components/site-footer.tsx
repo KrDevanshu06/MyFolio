@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -22,17 +22,17 @@ export function SiteFooter() {
             <div className="flex items-center gap-4 mb-4">
               <Avatar className="h-12 w-12 border-2 border-teal-500/20">
                 <AvatarImage src="https://github.com/krdevanshu06.png" alt="@krdevanshu06" />
-                <AvatarFallback className="bg-slate-800 text-teal-400 font-mono">KD</AvatarFallback>
+                <AvatarFallback className="bg-slate-800 text-teal-400 font-mono">DP</AvatarFallback>
               </Avatar>
               <div>
-                <h3 className="font-serif text-xl text-slate-100 leading-none">KrDevanshu06</h3>
-                <p className="text-xs text-slate-500 font-mono mt-1">Full Stack & ML Engineer</p>
+                <h3 className="font-serif text-xl text-slate-100 leading-none">Devanshu Kumar Prasad</h3>
+                <p className="text-xs text-slate-500 font-mono mt-1">Data Associate & AI Engineer</p>
               </div>
             </div>
             
             <p className="font-sans text-slate-400 max-w-md text-sm leading-relaxed">
-              Engineering robust systems and exploring the frontiers of artificial intelligence. 
-              Based in Jamshedpur, India.
+              Bridging the gap between data science and distributed systems. 
+              Winner of Summer Analytics Hackathon (IIT Guwahati).
             </p>
           </div>
           <div className="flex flex-col md:items-end justify-center">
@@ -56,7 +56,7 @@ export function SiteFooter() {
         <Separator className="bg-slate-900 mb-8" />
         
         <div className="flex flex-col md:flex-row justify-between items-center text-xs font-mono text-slate-600">
-          <p>© {currentYear} Devanshu Kumar. All rights reserved.</p>
+          <p>© {currentYear} Devanshu Kumar Prasad. All rights reserved.</p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
             <span className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
@@ -65,7 +65,6 @@ export function SiteFooter() {
               </span>
               System Status: Operational
             </span>
-            <span>Build v2.0.4</span>
           </div>
         </div>
       </div>

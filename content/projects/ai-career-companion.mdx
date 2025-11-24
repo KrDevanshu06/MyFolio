@@ -1,0 +1,42 @@
+---
+title: "AI Career Companion: Generative Guidance System"
+date: "2025-04-15"
+abstract: "A Generative AI assistant designed to democratize career counseling. By integrating Gemini Pro with session state management, we created a system capable of analyzing user profiles and generating personalized educational roadmaps with context retention."
+tech: ["Python", "GenAI", "Gemini Pro", "Pandas", "Streamlit"]
+repo: "https://github.com/krdevanshu06"
+---
+
+## 1. Introduction
+
+Traditional career counseling is often expensive and inaccessible. Our objective was to engineer a **Context-Aware Conversational Agent** that could provide university-level guidance at zero marginal cost.
+
+## 2. System Architecture
+
+The system is built on a RAG (Retrieval-Augmented Generation) adjacent framework using **Google's Gemini Pro**.
+
+* **LLM Engine:** Gemini Pro for reasoning and roadmap generation.
+* **State Management:** Custom session handling to remember user constraints (GPA, interests, location) across the conversation.
+* **Analytics:** Logs user queries to CSV for identifying common student pain points.
+
+### 2.1 Context Retention Logic
+
+To prevent the "hallucination" of user details, we implemented a sliding window context buffer:
+
+```python
+def update_history(user_input, ai_response):
+    st.session_state.history.append({"role": "user", "content": user_input})
+    st.session_state.history.append({"role": "model", "content": ai_response})
+    
+    # Export interaction log for analytics
+    log_interaction(user_input, ai_response, timestamp=time.now())
+```
+
+## 3. Capabilities
+
+* **Resume Scanning**: Extracts keywords to suggest missing skills.
+* **Roadmap Generation**: Creates week-by-week study plans for specific roles (e.g., "DevOps Engineer").
+* **Mock Interviews**: Simulates role-specific interview questions.
+
+## 4. Results
+
+The system successfully handled diverse career queries, providing actionable roadmaps that aligned with current industry standards (verified against job descriptions).
