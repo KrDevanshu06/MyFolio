@@ -18,17 +18,17 @@ export function ContextMenu() {
   const [show, setShow] = useState(false);
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
 
-  // Handle context menu
   const handleContextMenu = useCallback((event: MouseEvent) => {
     event.preventDefault();
-    setAnchorPoint({ x: event.pageX, y: event.pageY });
+    // FIX: Use clientX/Y (viewport coordinates) instead of pageX/Y (document coordinates)
+    // to ensure the menu stays visible regardless of scroll position.
+    setAnchorPoint({ x: event.clientX, y: event.clientY });
     setShow(true);
   }, []);
 
-  // Handle click to close
-  const handleClick = useCallback((event: MouseEvent) => {
-    setShow(false);
-  }, []);
+  const handleClick = useCallback(() => {
+    if (show) setShow(false);
+  }, [show]);
 
   // Handle escape key
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
@@ -49,26 +49,27 @@ export function ContextMenu() {
     };
   }, [handleContextMenu, handleClick, handleKeyDown]);
   
-  // Calculate menu position
   const getMenuPosition = () => {
     if (typeof window === "undefined") {
       return anchorPoint;
     }
 
-    const menuWidth = 192;
-    const menuHeight = 260;
+    const menuWidth = 192; // w-48
+    const menuHeight = 280; // Height of the menu items stack
     
     let x = anchorPoint.x;
     let y = anchorPoint.y;
 
+    // Flip horizontally if close to right edge
     if (x + menuWidth > window.innerWidth) {
       x = anchorPoint.x - menuWidth;
     }
+    // Flip vertically if close to bottom edge
     if (y + menuHeight > window.innerHeight) {
       y = anchorPoint.y - menuHeight;
     }
 
-    return { x: Math.max(8, x), y: Math.max(8, y) };
+    return { x, y };
   };
 
   const { x, y } = getMenuPosition();
@@ -113,7 +114,8 @@ export function ContextMenu() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
-          className="fixed z-[100] w-48 rounded-lg border border-slate-800 bg-slate-950/90 backdrop-blur-md p-1 shadow-2xl ring-1 ring-teal-500/20"
+          // FIX: Increased z-index to 9999 to sit above NavHeader (z-50) and Toasts
+          className="fixed z-[9999] w-48 rounded-lg border border-slate-800 bg-slate-950/95 backdrop-blur-xl p-1 shadow-2xl ring-1 ring-teal-500/20"
           style={{ top: y, left: x }}
           onClick={(e) => e.stopPropagation()}
         >

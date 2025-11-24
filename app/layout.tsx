@@ -25,6 +25,30 @@ export const metadata: Metadata = {
   description: 'Portfolio of a Computer Science Engineer from NIT Jamshedpur. Specializing in Distributed Systems, AI/ML, and Algorithmic Optimization.',
   keywords: ['Next.js', 'React', 'Machine Learning', 'NIT Jamshedpur', 'Full Stack', 'Portfolio'],
   authors: [{ name: 'KrDevanshu06' }],
+  // 👇 NEW SECTIONS BELOW
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://krdevanshu.com", // Replace with your Vercel URL once deployed
+    title: "KrDevanshu06 | Kinetic Intellect",
+    description: "Bridging the gap between stochastic research and deterministic engineering.",
+    siteName: "KrDevanshu06 Portfolio",
+    images: [
+      {
+        url: "/api/og?title=KrDevanshu06&type=Portfolio&tech=Full%20Stack%20%26%20ML",
+        width: 1200,
+        height: 630,
+        alt: "KrDevanshu06 Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KrDevanshu06 | Full Stack & ML",
+    description: "Engineering robust systems and exploring the frontiers of AI.",
+    creator: "@krdevanshu06", // Replace with your handle
+    images: ["/api/og?title=KrDevanshu06&type=Portfolio&tech=Full%20Stack%20%26%20ML"],
+  },
 };
 
 export default function RootLayout({

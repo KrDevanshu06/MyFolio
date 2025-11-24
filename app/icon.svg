@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="#020617"/>
+  <rect x="2" y="2" width="28" height="28" rx="4" stroke="#2dd4bf" stroke-width="0.5"/>
+  
+  <!-- K Letter -->
+  <path d="M8 9h2v14h-2V9z" fill="#2dd4bf"/>
+  <path d="M10 15.5h1.5l3-4h2.5l-3.5 4.5 4 5.5h-2.5l-3-4.5H10v4.5h0V15.5z" fill="#2dd4bf"/>
+  
+  <!-- D Letter -->
+  <path d="M18 9h3.5c2.2 0 4 1.8 4 4v2c0 2.2-1.8 4-4 4H18V9z" fill="#2dd4bf"/>
+  <path d="M20 11v8h1.5c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2H20z" fill="#020617"/>
+</svg>

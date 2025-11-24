@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next'; // Add this import
 import { getProjectBySlug, getAllProjects } from '@/lib/project';
 import { ArrowLeft, Calendar, Github, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,6 +15,46 @@ import 'highlight.js/styles/github-dark.css'; // Import Code Highlight Styles
 export async function generateStaticParams() {
   const projects = await getAllProjects();
   return projects.map((slug) => ({ slug }));
+}
+
+// 👇 NEW FUNCTION
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { frontmatter } = await getProjectBySlug(params.slug);
+  
+  // Create a clean tech string (e.g., "React • AWS • Node")
+  const techString = frontmatter.tech?.slice(0, 3).join(' • ') || 'Engineering';
+  
+  // Encode params for URL
+  const ogUrl = new URL('https://krdevanshu.com/api/og'); // Replace domain
+  ogUrl.searchParams.set('title', frontmatter.title);
+  ogUrl.searchParams.set('type', 'Case Study');
+  ogUrl.searchParams.set('tech', techString);
+
+  return {
+    title: `${frontmatter.title} | KrDevanshu06`,
+    description: frontmatter.abstract,
+    openGraph: {
+      title: frontmatter.title,
+      description: frontmatter.abstract,
+      type: 'article',
+      publishedTime: frontmatter.date,
+      authors: ['KrDevanshu06'],
+      images: [
+        {
+          url: ogUrl.toString(),
+          width: 1200,
+          height: 630,
+          alt: frontmatter.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.title,
+      description: frontmatter.abstract,
+      images: [ogUrl.toString()],
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
