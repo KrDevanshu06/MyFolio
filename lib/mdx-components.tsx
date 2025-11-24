@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
 // Helper to wrap client components safely
 const ClientBadge = (props: any) => <Badge {...props} />;
@@ -8,6 +9,18 @@ const ClientSeparator = (props: any) => <Separator {...props} />;
 const ClientTable = (props: any) => (
   <div className="my-8 border border-slate-800 rounded-lg overflow-hidden">
     <Table {...props} />
+  </div>
+);
+
+// New: Client wrapper for ScrollArea to use in MDX
+const ClientScrollArea = (props: any) => (
+  <div className="rounded-lg border border-slate-800 mb-8 bg-slate-950/50 shadow-xl">
+    <ScrollArea className="w-full" type="always">
+      <div className="p-4">
+        {props.children}
+      </div>
+      <ScrollBar orientation="horizontal" />
+    </ScrollArea>
   </div>
 );
 
@@ -26,11 +39,9 @@ export const MDXComponents = {
   
   // Syntax Highlighting & Code Blocks
   code: (props: any) => <code className="font-mono text-teal-300 bg-slate-900/50 px-1.5 py-0.5 rounded text-sm border border-slate-800" {...props} />,
-  pre: (props: any) => (
-    <div className="overflow-hidden rounded-lg border border-slate-800 mb-8 bg-slate-950/50 shadow-xl">
-      <pre className="p-4 overflow-x-auto" {...props} />
-    </div>
-  ),
+  
+  // Use our new ClientScrollArea for pre tags
+  pre: ClientScrollArea,
   
   // Quotes & Callouts
   blockquote: (props: any) => (

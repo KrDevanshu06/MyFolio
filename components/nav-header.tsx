@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react"; 
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -16,11 +16,20 @@ import {
 export function NavHeader() {
   const navItems = [
     { name: "Research", href: "#research" },
+    { name: "Trajectory", href: "#trajectory" },
     { name: "Engineering", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
 
-  return (
+  // Custom handler for smooth scrolling
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };  return (
     <motion.header 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -37,6 +46,7 @@ export function NavHeader() {
           <Link 
             key={item.name} 
             href={item.href}
+            onClick={(e) => handleScroll(e, item.href)}
             className="text-sm font-mono text-slate-400 hover:text-teal-400 transition-colors duration-300 uppercase tracking-wider"
           >
             {item.name}
@@ -62,6 +72,7 @@ export function NavHeader() {
                 <SheetClose key={item.name} asChild>
                   <Link 
                     href={item.href}
+                    onClick={(e) => handleScroll(e, item.href)}
                     className="text-lg font-mono text-slate-400 hover:text-teal-400 transition-colors uppercase tracking-widest"
                   >
                     {item.name}

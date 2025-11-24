@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from "@/components/ui/sonner";
+import { ContextMenu } from "@/components/context-menu";
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -47,6 +48,7 @@ export default function RootLayout({
         jetbrains.variable,
         "bg-background text-foreground min-h-screen"
       )}>
+        <ContextMenu />
         {children}
         <Toaster position="bottom-right" />
       </body>

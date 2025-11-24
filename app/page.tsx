@@ -4,6 +4,8 @@ import { ResearchCard } from "@/components/research-card";
 import { ContactSection } from "@/components/contact-section";
 import { CommandMenu } from "@/components/command-menu";
 import { TechStack } from "@/components/tech-stack";
+import { Trajectory } from "@/components/trajectory";
+import { SiteFooter } from "@/components/site-footer";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
@@ -50,7 +52,7 @@ export default function Home() {
       <NeuralHero />
 
       {/* Academic/Stats Section */}
-      <section id="research" className="py-24 px-6 bg-slate-950">
+      <section id="research" className="py-24 px-6 bg-slate-950 scroll-mt-28">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
             <div>
@@ -74,11 +76,16 @@ export default function Home() {
 
       <Separator className="bg-slate-900" />
       
+      {/* Trajectory Timeline */}
+      <Trajectory />
+
+      <Separator className="bg-slate-900" />
+      
       {/* Tech Stack Section */}
       <TechStack />
 
       {/* Projects / Case Studies */}
-      <section id="projects" className="py-24 bg-slate-950">
+      <section id="projects" className="py-24 bg-slate-950 scroll-mt-28">
         <div className="max-w-6xl mx-auto px-6 mb-16">
           <h2 className="font-serif text-4xl md:text-5xl text-slate-100 mb-6">
             Selected Works
@@ -100,6 +107,7 @@ export default function Home() {
 
       {/* Contact / Footer */}
       <ContactSection />
+      <SiteFooter />
     </main>
   );
 }

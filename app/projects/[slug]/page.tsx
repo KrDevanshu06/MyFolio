@@ -5,6 +5,8 @@ import { ArrowLeft, Calendar, Github, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { NavHeader } from '@/components/nav-header';
+import { ScrollProgress } from '@/components/scroll-progress';
+import { SiteFooter } from '@/components/site-footer';
 import 'katex/dist/katex.min.css'; // Import Math Styles
 import 'highlight.js/styles/github-dark.css'; // Import Code Highlight Styles
 
@@ -20,6 +22,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
     return (
       <div className="min-h-screen bg-slate-950 selection:bg-teal-500/20">
+        <ScrollProgress />
         <NavHeader />
         
         <main className="pt-32 pb-24 px-6">
@@ -79,6 +82,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             </div>
           </div>
         </main>
+        <SiteFooter />
       </div>
     );
   } catch (error) {

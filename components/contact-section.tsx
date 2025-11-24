@@ -18,7 +18,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 text-center bg-slate-950 relative overflow-hidden">
+    <section id="contact" className="py-32 px-6 text-center bg-slate-950 relative overflow-hidden scroll-mt-28">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-500/5 rounded-full blur-[100px] pointer-events-none" />
       
       <div className="relative z-10 max-w-2xl mx-auto">
@@ -51,9 +51,6 @@ export function ContactSection() {
         </div>
       </div>
 
-      <footer className="mt-32 text-slate-600 font-mono text-xs">
-        <p>© 2025. Engineered in Next.js & Tailwind.</p>
-      </footer>
     </section>
   );
 }

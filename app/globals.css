@@ -41,4 +41,63 @@
 
 html {
   scroll-behavior: smooth;
+  /* Firefox Support */
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 20px;
+  border: 2px solid hsl(var(--background)); /* Creates a padding effect */
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Turns Teal on hover for that "active" feel */
+  background-color: hsl(var(--primary)); 
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Enable text selection everywhere while maintaining right-click protection */
+* {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Disable image dragging and saving */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  pointer-events: none;
+}
+
+/* Re-enable pointer events for interactive elements */
+button, a, input, textarea, select {
+  pointer-events: auto;
+}
+
+/* Prevent text selection on UI elements while keeping content selectable */
+nav, header .text-xl, button, .cursor-pointer {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

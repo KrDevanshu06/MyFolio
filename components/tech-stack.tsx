@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Database, Layout, Server, BrainCircuit, GitBranch } from "lucide-react";
 
 export function TechStack() {
@@ -14,7 +15,8 @@ export function TechStack() {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        <Tabs defaultValue="backend" className="w-full">
+        <TooltipProvider>
+          <Tabs defaultValue="backend" className="w-full">
           <TabsList className="grid w-full grid-cols-3 bg-slate-900 border border-slate-800">
             <TabsTrigger value="backend" className="font-mono text-xs md:text-sm data-[state=active]:bg-teal-950 data-[state=active]:text-teal-400">
               <Server className="w-4 h-4 mr-2 hidden md:inline" />
@@ -57,6 +59,7 @@ export function TechStack() {
             </TabsContent>
           </div>
         </Tabs>
+        </TooltipProvider>
       </div>
     </section>
   );
@@ -70,9 +73,19 @@ function StackCard({ title, description, items }: { title: string, description: 
         <p className="text-slate-500 text-sm mb-6 font-mono">{description}</p>
         <div className="flex flex-wrap gap-2">
           {items.map((item) => (
-            <Badge key={item} variant="secondary" className="bg-slate-800 text-slate-300 hover:bg-teal-900/30 hover:text-teal-400 border border-transparent hover:border-teal-900 transition-all">
-              {item}
-            </Badge>
+            <Tooltip key={item}>
+              <TooltipTrigger asChild>
+                <Badge 
+                  variant="secondary" 
+                  className="cursor-help bg-slate-800 text-slate-300 hover:bg-teal-900/30 hover:text-teal-400 border border-transparent hover:border-teal-900 transition-all"
+                >
+                  {item}
+                </Badge>
+              </TooltipTrigger>
+              <TooltipContent className="bg-slate-950 border-slate-800 text-slate-400 font-mono text-xs">
+                <p>Proficiency: Advanced</p>
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
       </CardContent>
