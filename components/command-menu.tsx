@@ -11,7 +11,8 @@ import {
   Terminal,
   Github,
   Linkedin,
-  Laptop
+  Laptop,
+  Award
 } from "lucide-react";
 
 import {
@@ -31,9 +32,37 @@ export function CommandMenu() {
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
+      // Command Menu Toggle - Ctrl/Cmd + K
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
+        return;
+      }
+      
+      // Don't trigger shortcuts when typing in input fields
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+      
+      // GitHub Protocol - Shift + G
+      if (e.key === "G" && e.shiftKey && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        window.open("https://github.com/krdevanshu06", "_blank");
+        return;
+      }
+      
+      // LinkedIn Handshake - Shift + L
+      if (e.key === "L" && e.shiftKey && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        window.open("https://linkedin.com/in/krdevanshu06", "_blank");
+        return;
+      }
+      
+      // Export Resume - Shift + P
+      if (e.key === "P" && e.shiftKey && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        window.open('/resume.pdf', '_blank');
+        return;
       }
     };
 
@@ -70,6 +99,10 @@ export function CommandMenu() {
               <Code2 className="mr-2 h-4 w-4" />
               <span>Engineering Logs</span>
             </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => router.push("/archive"))}>
+              <Award className="mr-2 h-4 w-4" />
+              <span>Certificate Archive</span>
+            </CommandItem>
             <CommandItem onSelect={() => runCommand(() => router.push("/#contact"))}>
               <Mail className="mr-2 h-4 w-4" />
               <span>Transmit Signal</span>
@@ -82,17 +115,17 @@ export function CommandMenu() {
             <CommandItem onSelect={() => runCommand(() => window.open("https://github.com/krdevanshu06", "_blank"))}>
               <Github className="mr-2 h-4 w-4" />
               <span>GitHub Protocol</span>
-              <CommandShortcut>GH</CommandShortcut>
+              <CommandShortcut>⇧G</CommandShortcut>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => window.open("https://linkedin.com/in/krdevanshu06", "_blank"))}>
               <Linkedin className="mr-2 h-4 w-4" />
               <span>LinkedIn Handshake</span>
-              <CommandShortcut>LI</CommandShortcut>
+              <CommandShortcut>⇧L</CommandShortcut>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => window.open('/resume.pdf', '_blank'))}>
               <Download className="mr-2 h-4 w-4" />
               <span>Export Resume Data</span>
-              <CommandShortcut>⌘P</CommandShortcut>
+              <CommandShortcut>⇧P</CommandShortcut>
             </CommandItem>
           </CommandGroup>
         </CommandList>

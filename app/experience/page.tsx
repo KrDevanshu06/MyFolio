@@ -13,7 +13,8 @@ import {
   Building2,
   Briefcase,
   GraduationCap,
-  ArrowRight
+  ArrowRight,
+  ArrowUp
 } from "lucide-react";
 
 // --- Data Source ---
@@ -85,7 +86,7 @@ const itemVariants = {
   show: { 
     opacity: 1, 
     x: 0, 
-    transition: { duration: 0.4, ease: "easeOut" } 
+    transition: { duration: 0.4 } 
   }
 };
 
@@ -163,6 +164,23 @@ export default function Experience() {
               ))}
             </motion.div>
           </section>
+
+          {/* Back to Top Button */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-16 pt-8 border-t border-slate-800/50 flex justify-center"
+          >
+            <Button
+              variant="outline"
+              className="border-slate-700 text-slate-300 hover:text-white hover:border-teal-500/50 transition-all group"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              <ArrowUp className="mr-2 h-4 w-4 group-hover:text-teal-400 transition-colors" />
+              Back to Top
+            </Button>
+          </motion.div>
 
         </div>
       </main>

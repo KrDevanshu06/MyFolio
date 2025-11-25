@@ -40,7 +40,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; <-- REMOVED to fix Next.js scroll restoration bugs */
+  
   /* Firefox Support */
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--muted)) transparent;
