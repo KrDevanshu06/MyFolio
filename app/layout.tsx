@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     images: ["/api/og?title=Devanshu&type=Portfolio&tech=AI%20%26%20Systems"],
   },
   verification: {
-    google: '<meta name="google-site-verification" content="UoBlcVRil-TaV4LWGgip-9vf6caN9OuGVqONvUl9_xE" />', // Add your Google Search Console verification code here
+    google: 'UoBlcVRil-TaV4LWGgip-9vf6caN9OuGVqONvUl9_xE',
   },
 };
 
