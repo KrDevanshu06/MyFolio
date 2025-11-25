@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ContextMenu } from "@/components/context-menu";
 import { PersonJsonLd } from "@/components/json-ld";
 import { SITE_CONFIG } from '@/lib/config';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -100,6 +101,9 @@ export default function RootLayout({
         <ContextMenu />
         {children}
         <Toaster position="bottom-right" />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
