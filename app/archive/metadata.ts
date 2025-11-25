@@ -1,9 +1,9 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 import { SITE_CONFIG } from '@/lib/config';
 
-export const metadata: Metadata = {
-  title: "Archive",
-  description: "Comprehensive archive of projects, achievements, certifications, and technical contributions. Explore hackathon wins, open-source tools, and AI research initiatives.",
+export const archiveMetadata: Metadata = {
+  title: 'Archive',
+  description: 'Comprehensive archive of projects, achievements, certifications, and technical contributions. Explore hackathon wins, open-source tools, and AI research initiatives.',
   keywords: [
     'Project Archive',
     'Hackathon Winner',
@@ -37,11 +37,3 @@ export const metadata: Metadata = {
     images: ['/api/og?title=Archive&type=Portfolio&tech=Projects%20%26%20Awards'],
   },
 };
-
-export default function ArchiveLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
-}

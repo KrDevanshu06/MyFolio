@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
 import { getAllProjects } from '@/lib/project';
+import { SITE_CONFIG } from '@/lib/config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://krdevanshu.com'; // REPLACE with your actual domain
+  const baseUrl = SITE_CONFIG.url as string;
   const projects = await getAllProjects();
 
   const projectUrls = projects.map((slug) => ({

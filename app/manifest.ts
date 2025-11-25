@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next';
+import { SITE_CONFIG } from '@/lib/config';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'KrDevanshu06 Portfolio - Full Stack & ML Engineer',
-    short_name: 'KrDevanshu',
-    description: 'Portfolio of a Computer Science Engineer from NIT Jamshedpur. Specializing in Distributed Systems, AI/ML, and Algorithmic Optimization.',
+    name: `${SITE_CONFIG.name} Portfolio - Full Stack & ML Engineer`,
+    short_name: SITE_CONFIG.shortName,
+    description: SITE_CONFIG.description,
     start_url: '/',
     display: 'standalone',
     background_color: '#020617', // slate-950

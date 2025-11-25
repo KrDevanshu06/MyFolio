@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { SITE_CONFIG } from '@/lib/config';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://krdevanshu.com/sitemap.xml', // REPLACE with your domain
+    sitemap: `${SITE_CONFIG.url}/sitemap.xml`,
   };
 }

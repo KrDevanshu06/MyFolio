@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { Toaster } from "@/components/ui/sonner";
 import { ContextMenu } from "@/components/context-menu";
 import { PersonJsonLd } from "@/components/json-ld";
+import { SITE_CONFIG } from '@/lib/config';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -22,32 +23,55 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Devanshu Kumar Prasad | AI & Full Stack Engineer',
-  description: 'Portfolio of a Computer Science Engineer from Jamshedpur. Specializing in AI/ML, Data Science, and Distributed Systems.',
-  keywords: ['Python', 'Machine Learning', 'Artificial Intelligence', 'Data Science', 'TensorFlow', 'Devanshu Kumar Prasad'],
-  authors: [{ name: 'Devanshu Kumar Prasad' }],
+  metadataBase: new URL(SITE_CONFIG.url as string),
+  title: {
+    default: SITE_CONFIG.title,
+    template: `%s | ${SITE_CONFIG.name}`,
+  },
+  description: SITE_CONFIG.description,
+  keywords: SITE_CONFIG.keywords,
+  authors: [{ name: SITE_CONFIG.author.name }],
+  creator: SITE_CONFIG.author.name,
+  publisher: SITE_CONFIG.author.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://krdevanshu.com",
-    title: "Devanshu Kumar Prasad | Kinetic Intellect",
+    url: SITE_CONFIG.url as string,
+    title: SITE_CONFIG.title,
     description: "Engineering robust systems and exploring the frontiers of artificial intelligence.",
-    siteName: "Devanshu Kumar Prasad Portfolio",
+    siteName: `${SITE_CONFIG.name} Portfolio`,
     images: [
       {
         url: "/api/og?title=Devanshu&type=Portfolio&tech=AI%20%26%20Systems",
         width: 1200,
         height: 630,
-        alt: "Devanshu Portfolio",
+        alt: `${SITE_CONFIG.name} Portfolio`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Devanshu Kumar Prasad | AI & Systems",
+    title: SITE_CONFIG.title,
     description: "Building intelligent systems with Python, TensorFlow, and Cloud Infrastructure.",
-    creator: "@krdevanshu06", 
+    creator: SITE_CONFIG.author.twitter,
     images: ["/api/og?title=Devanshu&type=Portfolio&tech=AI%20%26%20Systems"],
+  },
+  verification: {
+    google: '', // Add your Google Search Console verification code here
   },
 };
 

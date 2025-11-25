@@ -1,11 +1,12 @@
 import { ProjectFrontmatter } from "@/lib/project";
+import { SITE_CONFIG } from "@/lib/config";
 
 export function PersonJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Devanshu Kumar Prasad",
-    url: "https://krdevanshu.com",
+    name: SITE_CONFIG.author.name,
+    url: SITE_CONFIG.url,
     jobTitle: "Data Associate & AI Engineer",
     alumniOf: [
       {
@@ -18,15 +19,17 @@ export function PersonJsonLd() {
       }
     ],
     sameAs: [
-      "https://github.com/krdevanshu06",
-      "https://linkedin.com/in/krdevanshu06",
+      SITE_CONFIG.author.github,
+      SITE_CONFIG.author.linkedin,
     ],
     knowsAbout: [
       "Machine Learning",
       "Artificial Intelligence",
       "Data Science",
       "Python",
-      "TensorFlow"
+      "TensorFlow",
+      "Backend Engineering",
+      "Distributed Systems",
     ],
   };
 
@@ -48,10 +51,11 @@ export function ProjectJsonLd({ project, slug }: { project: ProjectFrontmatter; 
     codeRepository: project.repo,
     author: {
       "@type": "Person",
-      name: "Devanshu Kumar Prasad",
+      name: SITE_CONFIG.author.name,
+      url: SITE_CONFIG.url,
     },
     datePublished: project.date,
-    url: `https://krdevanshu.com/projects/${slug}`,
+    url: `${SITE_CONFIG.url}/projects/${slug}`,
   };
 
   return (

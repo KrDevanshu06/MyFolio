@@ -12,6 +12,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { ProjectJsonLd } from '@/components/json-ld';
 import { TableOfContents } from '@/components/table-of-contents';
 import { ScrollToTop } from '@/components/scroll-to-top';
+import { SITE_CONFIG } from '@/lib/config';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/github-dark.css';
 
@@ -26,20 +27,26 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   
   const techString = frontmatter.tech?.slice(0, 3).join(' • ') || 'Engineering';
   
-  const ogUrl = new URL('https://krdevanshu.com/api/og'); 
+  const ogUrl = new URL(`${SITE_CONFIG.url}/api/og`); 
   ogUrl.searchParams.set('title', frontmatter.title);
   ogUrl.searchParams.set('type', 'Case Study');
   ogUrl.searchParams.set('tech', techString);
 
   return {
-    title: `${frontmatter.title} | Devanshu Kumar Prasad`,
+    title: frontmatter.title,
     description: frontmatter.abstract,
+    keywords: frontmatter.tech,
+    authors: [{ name: SITE_CONFIG.author.name }],
+    alternates: {
+      canonical: `/projects/${params.slug}`,
+    },
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.abstract,
       type: 'article',
       publishedTime: frontmatter.date,
-      authors: ['Devanshu Kumar Prasad'],
+      authors: [SITE_CONFIG.author.name],
+      url: `${SITE_CONFIG.url}/projects/${params.slug}`,
       images: [
         {
           url: ogUrl.toString(),
@@ -53,6 +60,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       card: 'summary_large_image',
       title: frontmatter.title,
       description: frontmatter.abstract,
+      creator: SITE_CONFIG.author.twitter,
       images: [ogUrl.toString()],
     },
   };

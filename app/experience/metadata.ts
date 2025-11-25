@@ -1,9 +1,9 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 import { SITE_CONFIG } from '@/lib/config';
 
-export const metadata: Metadata = {
-  title: "Experience",
-  description: "Professional experience in AI/ML, Data Science, and Software Engineering. Internships at Infotact Solutions, Edunet Foundation with Shell, Microsoft, and SAP.",
+export const experienceMetadata: Metadata = {
+  title: 'Experience',
+  description: 'Professional experience in AI/ML, Data Science, and Software Engineering. Internships at Infotact Solutions, Edunet Foundation with Shell, Microsoft, and SAP.',
   keywords: [
     'Data Science Internship',
     'AI Internship',
@@ -37,12 +37,3 @@ export const metadata: Metadata = {
     images: ['/api/og?title=Experience&type=Career&tech=AI%20%26%20ML'],
   },
 };
-
-// CRITICAL: This default export MUST exist for the page to work
-export default function ExperienceLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
-}
