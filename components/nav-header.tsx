@@ -45,7 +45,7 @@ export function NavHeader() {
       className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md supports-[backdrop-filter]:bg-slate-950/50"
     >
       <div className="text-xl font-serif font-bold tracking-tight text-slate-100">
-        <span className="text-teal-400">01.</span> Portfolio
+        KrDevanshu<span className="text-teal-400">06.</span>
       </div>
 
       {/* Desktop Navigation */}
