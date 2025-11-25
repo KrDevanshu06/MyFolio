@@ -11,12 +11,20 @@ import { Separator } from "@/components/ui/separator";
 export default function Home() {
   const projects = [
     {
-      title: "AI Career Companion",
-      category: "Generative AI",
-      metrics: "Powered by Gemini Pro",
-      abstract: "Developed a GenAI-powered assistant for career guidance, integrating Gemini Pro with session tracking, logs, and CSV export for analytics. Designed to provide personalized educational roadmaps.",
-      techStack: ["Python", "GenAI", "Pandas", "NumPy"],
-      link: "/projects/ai-career-companion",
+      title: "DailyDiff: Ethical Streak Maintainer",
+      category: "Open Source Tool",
+      metrics: "Active Package",
+      abstract: "A developer productivity tool designed to maintain GitHub streaks ethically. Built with React, Node.js, and Supabase to automate contribution tracking without compromising integrity.",
+      techStack: ["React", "Node.js", "Supabase", "Cron Jobs"],
+      link: "/projects/dailydiff",
+    },
+    {
+      title: "Movie Recommendation System",
+      category: "Data Science",
+      metrics: "81.02% Precision",
+      abstract: "Developed a collaborative filtering system using SVD and KNN models during my internship at Infotact. Achieved an RMSE of 0.766, significantly improving recommendation quality.",
+      techStack: ["Python", "Scikit-Learn", "SVD", "KNN"],
+      link: "/projects/movie-recommendation",
     },
     {
       title: "Forest Fire Detection System",
@@ -27,21 +35,13 @@ export default function Home() {
       link: "/projects/forest-fire-detection",
     },
     {
-      title: "Plant Disease Detection System",
-      category: "Agricultural AI",
-      metrics: "92% Accuracy",
-      abstract: "Processed and analyzed a dataset of over 10,000+ leaf images using Deep Learning. Achieved high accuracy in disease classification to aid early agricultural intervention.",
-      techStack: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
-      link: "/projects/plant-disease-detection",
+      title: "AI Career Companion",
+      category: "Generative AI",
+      metrics: "Powered by Gemini Pro",
+      abstract: "Developed a GenAI-powered assistant for career guidance, integrating Gemini Pro with session tracking, logs, and CSV export for analytics.",
+      techStack: ["Python", "GenAI", "Pandas", "NumPy"],
+      link: "/projects/ai-career-companion",
     },
-    {
-      title: "Movie Recommendation System",
-      category: "Data Science",
-      metrics: "81.02% Precision@10",
-      abstract: "Developed a collaborative filtering system using SVD and KNN models during my internship at Infotact. Achieved an RMSE of 0.766, significantly improving recommendation quality.",
-      techStack: ["Python", "Scikit-Learn", "SVD", "KNN"],
-      link: "/projects/movie-recommendation",
-    }
   ];
 
   return (
@@ -60,14 +60,14 @@ export default function Home() {
               <p className="text-slate-500 text-sm mt-1">B.Tech CSE (2027)</p>
             </div>
             <div>
-              <h3 className="font-mono text-teal-500 text-sm mb-2">Performance</h3>
+              <h3 className="font-mono text-teal-500 text-sm mb-2">Distinction</h3>
               <p className="font-serif text-2xl text-slate-100">Hackathon Winner</p>
               <p className="text-slate-500 text-sm mt-1">IIT Guwahati Summer Analytics</p>
             </div>
             <div>
-              <h3 className="font-mono text-teal-500 text-sm mb-2">Focus</h3>
-              <p className="font-serif text-2xl text-slate-100">AI & Systems</p>
-              <p className="text-slate-500 text-sm mt-1">Full Stack / GenAI</p>
+              <h3 className="font-mono text-teal-500 text-sm mb-2">Specialization</h3>
+              <p className="font-serif text-2xl text-slate-100">Data & Systems</p>
+              <p className="text-slate-500 text-sm mt-1">AI / Backend / Cloud</p>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Home() {
             Selected Works
           </h2>
           <p className="font-sans text-slate-400 max-w-2xl">
-            A curated selection of engineering challenges and research initiatives.
+            A curated selection of engineering challenges, open-source tools, and AI research initiatives.
           </p>
         </div>
 

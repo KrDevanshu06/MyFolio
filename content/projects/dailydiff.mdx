@@ -1,0 +1,98 @@
+---
+title: "DailyDiff: Ethical GitHub Streak Automation"
+date: "2025-01-15"
+abstract: "A developer productivity tool designed to alleviate 'Streak Anxiety'. DailyDiff automates the maintenance of GitHub contribution graphs during periods of non-coding work (research, documentation) using Node.js cron jobs and Supabase for state management."
+tech: ["React", "Node.js", "Supabase", "node-cron", "GitHub API"]
+repo: "https://github.com/KrDevanshu06/DailyDiff"
+demo: "https://daily-diff.vercel.app/"
+---
+
+## Introduction
+
+The "GitHub Streak" has evolved from a fun gamification metric into a source of pressure for many developers. Missing a single day due to illness, travel, or researching (non-code work) can break a year-long chain.
+
+**DailyDiff** acts as a fail-safe mechanism. It is an "Ethical Streak Maintainer" that ensures your profile remains active by automating legitimate, low-touch contributions (like documentation updates or log rotations) when you are unable to push code manually.
+
+## System Architecture
+
+The application follows a decoupled client-server architecture to handle secure authentication and background scheduling.
+
+### Core Stack
+* **Frontend:** React (Vite) for the dashboard and configuration.
+* **Backend:** Node.js (Express) for API handling.
+* **Database:** Supabase (PostgreSQL) for storing user tokens and preferences.
+* **Scheduler:** `node-cron` for precise time-based execution.
+
+### Data Flow
+
+1.  **User Authorization:** User logs in via GitHub OAuth.
+2.  **Token Storage:** Access tokens are encrypted and stored in Supabase.
+3.  **Schedule Configuration:** User sets a "Safety Window" (e.g., "Check activity at 11:00 PM").
+4.  **Cron Execution:** The server wakes up, checks the user's activity for the day via GitHub API.
+5.  **Conditional Push:** If (and only if) no contributions are found, a micro-commit is generated.
+
+## Technical Implementation
+
+### The Automation Engine
+
+The heart of the system is the `node-cron` scheduler which orchestrates the checking process without constant server uptime requirements for the client.
+
+```javascript
+import cron from 'node-cron';
+import { checkUserActivity, pushSafetyCommit } from './github-service';
+
+// Schedule task to run every day at 23:00 UTC
+cron.schedule('0 23 * * *', async () => {
+  console.log('Initializing DailyDiff Safety Protocol...');
+  
+  const activeUsers = await supabase.from('users').select('*').eq('is_active', true);
+  
+  for (const user of activeUsers) {
+    const hasContributed = await checkUserActivity(user.github_username);
+    
+    if (!hasContributed) {
+      console.log(`No activity detected for ${user.github_username}. Engaging safety protocol.`);
+      await pushSafetyCommit(user.access_token);
+    } else {
+      console.log(`${user.github_username} is safe. No action required.`);
+    }
+  }
+});
+```
+
+### GitHub API Integration
+
+To determine if a commit is necessary, we query the GraphQL API to fetch the user's contribution calendar for the specific date.
+
+```graphql
+query($username: String!) {
+  user(login: $username) {
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## Challenges & Solutions
+
+### 1. Token Expiration
+**Challenge:** GitHub OAuth tokens have finite lifespans.  
+**Solution:** Implemented a token refresh rotation strategy in Supabase. When a cron job encounters a 401 error, it flags the user profile for re-authentication and sends a notification email via Resend.
+
+### 2. "Empty" Commit Ethics
+**Challenge:** Creating empty commits can be seen as "cheating."  
+**Solution:** DailyDiff enforces an "Ethical Mode." Instead of blank commits, it updates a daily-log.md file in a specialized repository with a timestamp and a quote, ensuring the contribution represents actual data modification.
+
+## Future Roadmap
+
+- **AI Summaries:** Integrate Gemini to generate a summary of the week's research papers read (instead of just a timestamp).
+- **Multi-Platform Support:** Extend streak protection to GitLab and Bitbucket.

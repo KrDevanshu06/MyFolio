@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import React from "react";
 
 // Define roles outside component to prevent re-creation
-const roles = ["Intelligence.", "Systems.", "Algorithms.", "Future."];
+const roles = ["Intelligence.", "Scale.", "Resilience.", "Future."];
 
 // Separate memoized particle component to prevent re-renders
 const ParticleBackground = React.memo(function ParticleBackground({ init }: { init: boolean }) {
@@ -116,8 +116,8 @@ export function NeuralHero() {
           </h1>
 
           <p className="font-sans text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Bridging the gap between stochastic research and deterministic engineering. 
-            Specializing in distributed systems, high-frequency algorithms, and generative AI.
+            Building robust systems at the intersection of <b>Artificial Intelligence</b> and <b>Distributed Architectures</b>. 
+            Specializing in scalable backend solutions and predictive modeling.
           </p>
 
           <motion.div 
@@ -127,14 +127,14 @@ export function NeuralHero() {
             transition={{ delay: 0.5, duration: 0.8 }}
           >
             {/* Using shadcn Badge component with custom classes for glass effect */}
-            <Badge variant="outline" className="px-4 py-2 border-slate-800 bg-slate-900/50 backdrop-blur-sm text-slate-300 hover:border-teal-500/50">
-              <Code2 className="w-4 h-4 mr-2" /> Full Stack
+            <Badge variant="outline" className="px-4 py-2 border-slate-800 bg-slate-900/50 backdrop-blur-sm text-slate-300 hover:border-teal-500/50 transition-colors cursor-default">
+              <Code2 className="w-4 h-4 mr-2" /> AI & ML
             </Badge>
-            <Badge variant="outline" className="px-4 py-2 border-slate-800 bg-slate-900/50 backdrop-blur-sm text-slate-300 hover:border-teal-500/50">
-              <Cpu className="w-4 h-4 mr-2" /> Machine Learning
+            <Badge variant="outline" className="px-4 py-2 border-slate-800 bg-slate-900/50 backdrop-blur-sm text-slate-300 hover:border-teal-500/50 transition-colors cursor-default">
+              <Cpu className="w-4 h-4 mr-2" /> Data Science
             </Badge>
-            <Badge variant="outline" className="px-4 py-2 border-slate-800 bg-slate-900/50 backdrop-blur-sm text-slate-300 hover:border-teal-500/50">
-              <Terminal className="w-4 h-4 mr-2" /> DevOps
+            <Badge variant="outline" className="px-4 py-2 border-slate-800 bg-slate-900/50 backdrop-blur-sm text-slate-300 hover:border-teal-500/50 transition-colors cursor-default">
+              <Terminal className="w-4 h-4 mr-2" /> Backend Systems
             </Badge>
           </motion.div>
         </motion.div>
